@@ -1,0 +1,12 @@
+{
+  "task_id": "articulated-3",
+  "task_name": "Lever Operation",
+  "category": "Articulated Object",
+  "text_description": "Operating mechanical levers and switches with precise force application and motion control to achieve desired mechanical outcomes.",
+  "egocentric_video": "./static/data/videos/articulated/task-3/egocentric.mp4",
+  "third_view_video": "./static/data/videos/articulated/task-3/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/articulated/task-3/pointcloud.ply",
+  "difficulty": "Advanced",
+  "duration": "12 seconds",
+  "tags": ["lever", "switch", "mechanical", "force-control"]
+}

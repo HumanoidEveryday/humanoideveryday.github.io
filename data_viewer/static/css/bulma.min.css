@@ -1,0 +1,328 @@
+/* Apple-Style Bulma CSS Framework */
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #ffffff;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    color: #1d1d1f;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Container */
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+}
+
+.container.is-max-desktop {
+    max-width: 1344px;
+}
+
+/* Columns */
+.columns {
+    display: flex;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    margin-top: -0.75rem;
+}
+
+.columns:last-child {
+    margin-bottom: -0.75rem;
+}
+
+.columns.is-centered {
+    justify-content: center;
+}
+
+.columns.is-vcentered {
+    align-items: center;
+}
+
+.column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75rem;
+}
+
+.column.is-one-quarter {
+    flex: none;
+    width: 25%;
+}
+
+.column.is-one-fifth {
+    flex: none;
+    width: 20%;
+}
+
+.column.is-four-fifths {
+    flex: none;
+    width: 80%;
+}
+
+.column.is-5 {
+    flex: none;
+    width: 41.66667%;
+}
+
+.column.is-8 {
+    flex: none;
+    width: 66.66667%;
+}
+
+.column.is-full {
+    flex: none;
+    width: 100%;
+}
+
+.column.is-full-width {
+    flex: none;
+    width: 100%;
+}
+
+/* Hero */
+.hero {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero.is-light {
+    background-color: #f5f5f5;
+}
+
+.hero.is-small .hero-body {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+}
+
+/* Section */
+.section {
+    padding: 3rem 1.5rem;
+}
+
+.section.is-medium {
+    padding: 9rem 1.5rem;
+}
+
+/* Title */
+.title {
+    color: #1d1d1f;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+    word-break: break-word;
+    letter-spacing: -0.01em;
+}
+
+.title.is-1 {
+    font-size: 3rem;
+}
+
+.title.is-3 {
+    font-size: 2rem;
+}
+
+.title.is-4 {
+    font-size: 1.5rem;
+}
+
+/* Content */
+.content {
+    color: #424245;
+}
+
+.content.has-text-justified {
+    text-align: justify;
+}
+
+.content p {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.button {
+    background-color: #fff;
+    border-color: #e5e5e7;
+    border-width: 1px;
+    color: #1d1d1f;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(0.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 980px;
+    font-size: 1rem;
+    height: 2.5em;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button.is-normal {
+    font-size: 1rem;
+}
+
+.button.is-rounded {
+    border-radius: 980px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.button.is-dark {
+    background-color: #007aff;
+    border-color: #007aff;
+    color: #fff;
+}
+
+.button:hover {
+    border-color: #d2d2d7;
+    color: #1d1d1f;
+    transform: translateY(-1px);
+}
+
+.button.is-dark:hover {
+    background-color: #0056cc;
+    border-color: #0056cc;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+/* External link */
+.external-link {
+    text-decoration: none;
+}
+
+/* Footer */
+.footer {
+    background-color: #f5f5f7;
+    padding: 3rem 1.5rem 6rem;
+}
+
+/* Card */
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    color: #1d1d1f;
+    max-width: 100%;
+    position: relative;
+    border: 1px solid #e5e5e7;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+/* Box */
+.box {
+    background-color: #f5f5f7;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #1d1d1f;
+    display: block;
+    padding: 1.25rem;
+    border: 1px solid #e5e5e7;
+}
+
+/* Notification */
+.notification {
+    background-color: #f5f5f7;
+    border-radius: 12px;
+    padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+    position: relative;
+    border: 1px solid #e5e5e7;
+}
+
+.notification.is-info {
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .columns.is-mobile {
+        display: flex;
+    }
+    
+    .column.is-5 {
+        flex: none;
+        width: 100%;
+    }
+    
+    .columns.is-centered.has-text-centered .columns {
+        flex-direction: column;
+    }
+}
+
+/* Icon */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Text utilities */
+.has-text-centered {
+    text-align: center;
+}
+
+.has-text-justified {
+    text-align: justify;
+}
+
+/* Spacing utilities */
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+/* Display utilities */
+.is-hidden {
+    display: none !important;
+}
+
+/* Position utilities */
+.is-relative {
+    position: relative !important;
+}

@@ -1,0 +1,12 @@
+{
+  "task_id": "tool-use-7",
+  "task_name": "Click a mouse",
+  "category": "Tool Use",
+  "text_description": "This task demonstrates precise computer interaction where the humanoid robot uses a computer mouse to perform clicking actions, requiring fine motor control, accurate positioning, and proper button activation techniques.",
+  "egocentric_video": "./static/data/videos/tool-use/task-7/click_a_mouse_egocentric.mp4",
+  "third_view_video": "./static/data/videos/tool-use/task-7/click_a_mouse_g1_nosound.mp4",
+  "point_cloud": "./static/data/point-clouds/tool-use/task-7/pointcloud.ply",
+  "difficulty": "Intermediate",
+  "duration": "20 seconds",
+  "tags": ["mouse", "clicking", "precision", "computer-interaction"]
+}

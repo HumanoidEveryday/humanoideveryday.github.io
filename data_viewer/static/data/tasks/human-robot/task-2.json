@@ -1,0 +1,12 @@
+{
+  "task_id": "human-robot-2",
+  "task_name": "Collaborative Assembly",
+  "category": "Human-Robot Interaction",
+  "text_description": "Working alongside a human partner to assemble complex objects, demonstrating coordination, communication, and shared workspace awareness.",
+  "egocentric_video": "./static/data/videos/human-robot/task-2/egocentric.mp4",
+  "third_view_video": "./static/data/videos/human-robot/task-2/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/human-robot/task-2/pointcloud.ply",
+  "difficulty": "Advanced",
+  "duration": "120 seconds",
+  "tags": ["collaboration", "assembly", "coordination", "shared-workspace"]
+}

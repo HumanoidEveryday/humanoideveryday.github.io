@@ -1,0 +1,12 @@
+{
+  "task_id": "tool-use-6",
+  "task_name": "Wipe table with cloth",
+  "category": "Tool Use",
+  "text_description": "This task demonstrates cloth-based cleaning where the humanoid robot uses a cloth to wipe a table surface, requiring proper wiping motions, systematic coverage patterns, and effective cleaning techniques.",
+  "egocentric_video": "./static/data/videos/tool-use/task-6/wipe_table_with_cloth_egocentric.mp4",
+  "third_view_video": "./static/data/videos/tool-use/task-6/wipe_table_with_cloth_nosound.mp4",
+  "point_cloud": "./static/data/point-clouds/tool-use/task-6/pointcloud.ply",
+  "difficulty": "Beginner",
+  "duration": "25 seconds",
+  "tags": ["cleaning", "cloth", "wiping", "surface-coverage"]
+}

@@ -1,0 +1,12 @@
+{
+  "task_id": "tool-use-2",
+  "task_name": "Wipe a table with an eraser",
+  "category": "Tool Use",
+  "text_description": "This task demonstrates cleaning tool usage where the humanoid robot uses an eraser to wipe and clean a table surface, requiring proper pressure application and systematic coverage patterns.",
+  "egocentric_video": "./static/data/videos/tool-use/task-2/wipe_a_table_with_an_eraser_egocentric.mp4",
+  "third_view_video": "./static/data/videos/tool-use/task-2/wipe_a_table_with_an_eraser_nosound.mp4",
+  "point_cloud": "./static/data/point-clouds/tool-use/task-2/pointcloud.ply",
+  "difficulty": "Intermediate",
+  "duration": "50 seconds",
+  "tags": ["eraser", "cleaning", "surface-wiping", "pressure-control"]
+}

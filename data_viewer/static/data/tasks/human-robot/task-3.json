@@ -1,0 +1,12 @@
+{
+  "task_id": "human-robot-3",
+  "task_name": "Teaching and Learning",
+  "category": "Human-Robot Interaction",
+  "text_description": "Learning new tasks through human demonstration and feedback, showing adaptive behavior and skill acquisition capabilities.",
+  "egocentric_video": "./static/data/videos/human-robot/task-3/egocentric.mp4",
+  "third_view_video": "./static/data/videos/human-robot/task-3/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/human-robot/task-3/pointcloud.ply",
+  "difficulty": "Advanced",
+  "duration": "180 seconds",
+  "tags": ["learning", "demonstration", "adaptation", "skill-acquisition"]
+}

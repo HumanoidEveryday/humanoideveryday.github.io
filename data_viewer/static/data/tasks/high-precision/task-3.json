@@ -1,0 +1,12 @@
+{
+  "task_id": "high-precision-3",
+  "task_name": "Watch Repair",
+  "category": "High Precision",
+  "text_description": "Delicate watch repair operations involving tiny screws, precise alignment, and careful handling of fragile mechanical components.",
+  "egocentric_video": "./static/data/videos/high-precision/task-3/egocentric.mp4",
+  "third_view_video": "./static/data/videos/high-precision/task-3/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/high-precision/task-3/pointcloud.ply",
+  "difficulty": "Expert",
+  "duration": "90 seconds",
+  "tags": ["watch-repair", "micro-mechanics", "delicate", "alignment"]
+}

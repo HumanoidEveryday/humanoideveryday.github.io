@@ -1,0 +1,12 @@
+{
+  "task_id": "high-precision-2",
+  "task_name": "Circuit Board Soldering",
+  "category": "High Precision",
+  "text_description": "Precise soldering of electronic components on circuit boards, requiring temperature control, steady positioning, and careful material handling.",
+  "egocentric_video": "./static/data/videos/high-precision/task-2/egocentric.mp4",
+  "third_view_video": "./static/data/videos/high-precision/task-2/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/high-precision/task-2/pointcloud.ply",
+  "difficulty": "Advanced",
+  "duration": "60 seconds",
+  "tags": ["soldering", "electronics", "temperature-control", "precision"]
+}

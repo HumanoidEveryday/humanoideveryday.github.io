@@ -1,0 +1,12 @@
+{
+  "task_id": "human-robot-1",
+  "task_name": "Handover Tasks",
+  "category": "Human-Robot Interaction",
+  "text_description": "Safe and intuitive object handover between human and robot. Demonstrates human-aware motion planning, force sensing, and collaborative manipulation.",
+  "egocentric_video": "./static/data/videos/human-robot/task-1/egocentric.mp4",
+  "third_view_video": "./static/data/videos/human-robot/task-1/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/human-robot/task-1/pointcloud.ply",
+  "difficulty": "Intermediate",
+  "duration": "20 seconds",
+  "tags": ["handover", "human-interaction", "collaboration", "safety"]
+}

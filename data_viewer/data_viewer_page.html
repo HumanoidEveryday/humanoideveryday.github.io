@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>[DATA_EXPLORER_TITLE]</title>
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <style>
+        /* Modern Design with White Background */
+        body {
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section {
+            background-color: #ffffff;
+            padding: 3rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .title {
+            color: #1d1d1f;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .notification {
+            background: linear-gradient(135deg, #007aff 0%, #0056b3 100%);
+            color: white;
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .is-halfheight {
+            height: 50vh;
+            overflow-y: scroll;
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .duck_icon {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* Modern Category Styling */
+        .category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            color: #1d1d1f;
+            cursor: pointer;
+            padding: 16px 20px;
+            width: 100%;
+            border: 1px solid #e5e5e7;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #007aff 0%, #0056b3 100%);
+            transition: all 0.3s ease;
+        }
+
+        .category:hover {
+            background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.15);
+            border-color: #007aff;
+        }
+
+        .category.active {
+            background: linear-gradient(135deg, #007aff 0%, #0056b3 100%);
+            color: white;
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+        }
+
+        .category.active::before {
+            background: #ffffff;
+        }
+
+        .category:after {
+            content: "\002B";
+            color: #007aff;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .category.active:after {
+            content: "\2212";
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        /* Modern Task List Styling */
+        .task-list {
+            border: none;
+            padding: 12px 16px;
+            margin: 4px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 14px;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .task-list:hover {
+            background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+            border-left-color: #34c759;
+            transform: translateX(4px);
+            box-shadow: 0 4px 16px rgba(52, 199, 89, 0.15);
+        }
+
+        .task-active {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+            border-left-color: #34c759;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(52, 199, 89, 0.2);
+        }
+
+        .panel {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 0 0 12px 12px;
+            margin-bottom: 8px;
+            border: 1px solid #e5e5e7;
+            border-top: none;
+        }
+
+        /* Modern Category Container */
+        .categorycontainer {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e7;
+        }
+
+        .categorycontainer::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .categorycontainer::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .categorycontainer::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #007aff 0%, #0056b3 100%);
+            border-radius: 10px;
+        }
+
+        .label {
+            padding: 5px;
+            width: 40%;
+        }
+
+        .other {
+            background-color: #e7e7e7;
+            color: rgb(82, 81, 81);
+            font-size: small;
+            width: 40%;
+            height: 22px;
+            position: relative;
+        }
+
+        .taskid-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .taskid-label {
+            margin-left: 10px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid #e5e5e7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        /* Modern Section Box Styling */
+        .section-box {
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e7;
+            transition: all 0.3s ease;
+        }
+
+        .section-box:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #007aff;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #34c759 0%, #28a745 100%);
+        }
+
+        /* Modern Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+            transform: scale(1.02);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: auto;
+            border: none;
+            display: block;
+            max-height: 600px;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 600px;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* Responsive video sizing */
+        @media (max-width: 768px) {
+            .video-container {
+                max-width: 100%;
+            }
+            
+            .video-container video {
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-container video {
+                max-height: 300px;
+            }
+        }
+
+        /* Modern Point Cloud Container */
+        .point-cloud-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #e5e5e7;
+            transition: all 0.3s ease;
+        }
+
+        .point-cloud-container:hover {
+            border-color: #007aff;
+            background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+        }
+
+        .placeholder-text {
+            color: #86868b;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Modern Category Header */
+        .category-header {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 24px;
+            text-align: center;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #007aff;
+            position: relative;
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #34c759 0%, #28a745 100%);
+        }
+
+        /* Modern Card Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e5e5e7;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section-box {
+                padding: 1.5rem;
+            }
+            
+            .categorycontainer {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-3">Humanoid Everyday Data Explorer</h2>
+            <div class="notification is-info">
+                <md-block>
+                    This page demonstrates egocentric and third view videos from a small subset of tasks in the Humanoid Everyday dataset.
+                </md-block>
+            </div>
+
+            <div class="columns">
+                <div class="column is-one-quarter categorycontainer" id="categoriesContainer">
+                    <div class="category-header">Categories</div>
+                    
+                    <!-- Pick and Place Category -->
+                    <button class="category" onclick="toggleCategory('pick-place')">
+                        Pick and Place
+                    </button>
+                    <div class="panel" id="pick-place-panel">
+                        <div class="task-list" data-task="pick-place-1">Task 1: Lyft a kettle from its base</div>
+                        <div class="task-list" data-task="pick-place-2">Task 2: Place a cube in a bag</div>
+                        <div class="task-list" data-task="pick-place-3">Task 3: Pick up a tripod and stand it on the desk</div>
+                        <div class="task-list" data-task="pick-place-4">Task 4: Pick up an air purify spray and put it inside a container</div>
+                        <div class="task-list" data-task="pick-place-5">Task 5: Pick a multi-meter and place it in a container</div>
+                        <div class="task-list" data-task="pick-place-6">Task 6: Pick a 3d printing filament and put it inside the container</div>
+                        <div class="task-list" data-task="pick-place-7">Task 7: Stack a rolls of paper towel on top of the other</div>
+                    </div>
+
+                    <!-- Deformable Objects Category -->
+                    <button class="category" onclick="toggleCategory('deformable')">
+                        Deformable Objects
+                    </button>
+                    <div class="panel" id="deformable-panel">
+                        <div class="task-list" data-task="deformable-1">Task 1: Cloth Manipulation</div>
+                        <div class="task-list" data-task="deformable-2">Task 2: Rope Handling</div>
+                        <div class="task-list" data-task="deformable-3">Task 3: Soft Object Grasping</div>
+                    </div>
+
+                    <!-- Loco-Manipulations Category -->
+                    <button class="category" onclick="toggleCategory('loco-manip')">
+                        Loco-Manipulations
+                    </button>
+                    <div class="panel" id="loco-manip-panel">
+                        <div class="task-list" data-task="loco-manip-1">Task 1: Walking While Carrying</div>
+                        <div class="task-list" data-task="loco-manip-2">Task 2: Dynamic Object Transfer</div>
+                        <div class="task-list" data-task="loco-manip-3">Task 3: Mobile Manipulation</div>
+                    </div>
+
+                    <!-- Tool Use Category -->
+                    <button class="category" onclick="toggleCategory('tool-use')">
+                        Tool Use
+                    </button>
+                    <div class="panel" id="tool-use-panel">
+                        <div class="task-list" data-task="tool-use-1">Task 1: Pour water from a kettle into a cup</div>
+                        <div class="task-list" data-task="tool-use-2">Task 2: Wipe a table with an eraser</div>
+                        <div class="task-list" data-task="tool-use-3">Task 3: Wipe a monitor with a cloth</div>
+                        <div class="task-list" data-task="tool-use-4">Task 4: Use a garden tool</div>
+                        <div class="task-list" data-task="tool-use-5">Task 5: Use a duster to dust the desk</div>
+                        <div class="task-list" data-task="tool-use-6">Task 6: Wipe table with cloth</div>
+                        <div class="task-list" data-task="tool-use-7">Task 7: Click a mouse</div>
+                    </div>
+
+                    <!-- Articulated Object Category -->
+                    <button class="category" onclick="toggleCategory('articulated')">
+                        Articulated Object
+                    </button>
+                    <div class="panel" id="articulated-panel">
+                        <div class="task-list" data-task="articulated-1">Task 1: Door Opening</div>
+                        <div class="task-list" data-task="articulated-2">Task 2: Drawer Manipulation</div>
+                        <div class="task-list" data-task="articulated-3">Task 3: Hinge Assembly</div>
+                    </div>
+
+                    <!-- High Precision Category -->
+                    <button class="category" onclick="toggleCategory('high-precision')">
+                        High Precision
+                    </button>
+                    <div class="panel" id="high-precision-panel">
+                        <div class="task-list" data-task="high-precision-1">Task 1: Threading Needle</div>
+                        <div class="task-list" data-task="high-precision-2">Task 2: Micro Assembly</div>
+                        <div class="task-list" data-task="high-precision-3">Task 3: Precision Placement</div>
+                    </div>
+
+                    <!-- Human-Robot Interaction Category -->
+                    <button class="category" onclick="toggleCategory('human-robot')">
+                        Human-Robot Interaction
+                    </button>
+                    <div class="panel" id="human-robot-panel">
+                        <div class="task-list" data-task="human-robot-1">Task 1: Handover Tasks</div>
+                        <div class="task-list" data-task="human-robot-2">Task 2: Collaborative Assembly</div>
+                        <div class="task-list" data-task="human-robot-3">Task 3: Social Interaction</div>
+                    </div>
+                </div>
+                <div class="column">
+                    <!-- Data Explorer UI with 5 sections -->
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                
+                                <!-- Section 1: Text Description -->
+                                <div class="section-box">
+                                    <h5 class="section-title">Text Description</h5>
+                                    <div>
+                                        <md-block id="text-description-content">Select a task from the left sidebar to view its description.</md-block>
+                                    </div>
+                                </div>
+
+                                <!-- Section 2: Third View -->
+                                <div class="section-box">
+                                    <h5 class="section-title">Third View</h5>
+                                    <div class="video-container">
+                                        <video id="third-viewer" controls preload="metadata">
+                                            <source src="" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div id="third-placeholder" class="placeholder-text">
+                                            Third person view video will be displayed here
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 3: Egocentric View -->
+                                <div class="section-box">
+                                    <h5 class="section-title">Egocentric View</h5>
+                                    <div class="video-container">
+                                        <video id="egocentric-viewer" controls preload="metadata">
+                                            <source src="" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div id="egocentric-placeholder" class="placeholder-text">
+                                            Egocentric view video will be displayed here
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 4: Point Cloud -->
+                                <div class="section-box">
+                                    <h5 class="section-title">Point Cloud</h5>
+                                    <div class="point-cloud-container">
+                                        <div id="point-cloud-content">
+                                            <div class="placeholder-text">
+                                                Point cloud visualization will be displayed here
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 5: Task ID -->
+                                <div class="section-box">
+                                    <h5 class="section-title">Task ID</h5>
+                                    <div class="taskid-container">
+                                        <span class="taskid-label" id="taskid-text">No task selected</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Category toggle functionality
+        function toggleCategory(categoryId) {
+            const panel = document.getElementById(categoryId + '-panel');
+            const button = event.target;
+            
+            // Toggle active class on button
+            button.classList.toggle('active');
+            
+            // Toggle panel visibility
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
+
+        // Task selection functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add click event listeners to all task items
+            const taskItems = document.querySelectorAll('.task-list');
+            
+            taskItems.forEach(taskItem => {
+                taskItem.addEventListener('click', function() {
+                    // Remove active class from all tasks
+                    taskItems.forEach(item => item.classList.remove('task-active'));
+                    
+                    // Add active class to clicked task
+                    this.classList.add('task-active');
+                    
+                    // Get task ID
+                    const taskId = this.getAttribute('data-task');
+                    
+                    // Update the display with task data
+                    updateTaskDisplay(taskId);
+                });
+            });
+        });
+
+        async function updateTaskDisplay(taskId) {
+            // Update Task ID
+            document.getElementById('taskid-text').innerHTML = taskId;
+            
+            // Load task data from JSON files
+            const taskData = await getTaskData(taskId);
+            
+            // Update Text Description
+            document.getElementById('text-description-content').innerHTML = 
+                taskData.text_description || 'No description available';
+            
+            // Update Egocentric View
+            const egocentricViewer = document.getElementById('egocentric-viewer');
+            const egocentricPlaceholder = document.getElementById('egocentric-placeholder');
+            if (taskData.egocentric_video && taskData.egocentric_video !== '' && taskData.egocentric_video !== "about:blank") {
+                const source = egocentricViewer.querySelector('source');
+                source.src = taskData.egocentric_video;
+                egocentricViewer.load(); // Reload the video with new source
+                egocentricViewer.style.display = 'block';
+                egocentricPlaceholder.style.display = 'none';
+            } else {
+                egocentricViewer.style.display = 'none';
+                egocentricPlaceholder.style.display = 'block';
+            }
+            
+            // Update Third View
+            const thirdViewer = document.getElementById('third-viewer');
+            const thirdPlaceholder = document.getElementById('third-placeholder');
+            if (taskData.third_view_video && taskData.third_view_video !== '' && taskData.third_view_video !== "about:blank") {
+                const source = thirdViewer.querySelector('source');
+                source.src = taskData.third_view_video;
+                thirdViewer.load(); // Reload the video with new source
+                thirdViewer.style.display = 'block';
+                thirdPlaceholder.style.display = 'none';
+            } else {
+                thirdViewer.style.display = 'none';
+                thirdPlaceholder.style.display = 'block';
+            }
+            
+            // Update Point Cloud
+            const pointCloudContent = document.getElementById('point-cloud-content');
+            if (taskData.point_cloud && taskData.point_cloud !== '' && taskData.point_cloud !== "about:blank") {
+                if (taskData.point_cloud.startsWith('http')) {
+                    pointCloudContent.innerHTML = `<iframe src="${taskData.point_cloud}" width="100%" height="400" frameborder="0"></iframe>`;
+                } else {
+                    pointCloudContent.innerHTML = `<div class="placeholder-text">Point cloud data available: ${taskData.point_cloud}</div>`;
+                }
+            } else {
+                pointCloudContent.innerHTML = '<div class="placeholder-text">No point cloud data available</div>';
+            }
+        }
+
+        // Load task data from JSON files
+        async function getTaskData(taskId) {
+            try {
+                // First, load the task index to get the file path
+                const indexResponse = await fetch('./static/data/task-index.json');
+                const taskIndex = await indexResponse.json();
+                
+                if (!taskIndex[taskId]) {
+                    console.error(`Task ID ${taskId} not found in index`);
+                    return getDefaultTaskData(taskId);
+                }
+                
+                // Load the specific task data file
+                const taskResponse = await fetch(taskIndex[taskId]);
+                const taskData = await taskResponse.json();
+                
+                return taskData;
+            } catch (error) {
+                console.error('Error loading task data:', error);
+                return getDefaultTaskData(taskId);
+            }
+        }
+
+        // Default task data when file loading fails
+        function getDefaultTaskData(taskId) {
+            return {
+                task_id: taskId,
+                task_name: `Task ${taskId}`,
+                text_description: `Description for ${taskId} - Data file not found or could not be loaded.`,
+                egocentric_video: '',
+                third_view_video: '',
+                point_cloud: '',
+                difficulty: 'Unknown',
+                duration: 'Unknown',
+                tags: []
+            };
+        }
+    </script>
+</body>
+</html>

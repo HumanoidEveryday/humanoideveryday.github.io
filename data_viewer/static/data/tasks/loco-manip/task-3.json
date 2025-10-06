@@ -1,0 +1,12 @@
+{
+  "task_id": "loco-manip-3",
+  "task_name": "Mobile Manipulation",
+  "category": "Loco-Manipulations",
+  "text_description": "Combined locomotion and manipulation in complex environments, demonstrating full-body coordination and spatial awareness.",
+  "egocentric_video": "./static/data/videos/loco-manip/task-3/egocentric.mp4",
+  "third_view_video": "./static/data/videos/loco-manip/task-3/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/loco-manip/task-3/pointcloud.ply",
+  "difficulty": "Advanced",
+  "duration": "45 seconds",
+  "tags": ["mobile", "manipulation", "full-body", "coordination"]
+}

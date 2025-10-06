@@ -1,0 +1,12 @@
+{
+  "task_id": "deformable-1",
+  "task_name": "Cloth Manipulation",
+  "category": "Deformable Objects",
+  "text_description": "This task involves manipulating flexible cloth materials, including folding, unfolding, and reorienting fabric. The robot must understand the dynamic properties of cloth and adapt its manipulation strategy to handle the non-rigid nature of the material.",
+  "egocentric_video": "./static/data/videos/deformable/task-1/egocentric.mp4",
+  "third_view_video": "./static/data/videos/deformable/task-1/third-view.mp4",
+  "point_cloud": "./static/data/point-clouds/deformable/task-1/pointcloud.ply",
+  "difficulty": "Intermediate",
+  "duration": "60 seconds",
+  "tags": ["cloth", "folding", "deformable", "flexible"]
+}
