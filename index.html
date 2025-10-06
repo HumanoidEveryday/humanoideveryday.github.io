@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="UMI on Legs: Making Manipulation Policies Mobile with a Manipulation-Centric Whole-body Controller">
+  <meta name="keywords" content="Robotics, Quadruped, Whole-body Control, Whole-body Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humanoid Everyday</title>
+
+  <link rel="apple-touch-icon" sizes="57x57"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png" />
+
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-196x196.png"
+    sizes="196x196" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-192x192.png"
+    sizes="192x192" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-128.png" sizes="128x128" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-16x16.png" sizes="16x16" />
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ38WT2YPD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QZ38WT2YPD');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
+  <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%;min-height: 56.25vw;">
+    <video playsinline autoplay muted loop>
+      <source src=" ./static/videos/teaser-small.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video is-hidden-tablet is-inline-block-mobile"
+    style="height: 154.28571428vw; width: 100%; min-width:64.81481481vh;min-height:100%;">
+    <video playsinline autoplay muted loop>
+      <source src=" ./static/videos/teaser-mobile-small.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="overlay"></div>
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head is-hidden-mobile">
+    <header class="navbar">
+      <div class="container is-size-5">
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item pl-4 pr-4" href="icra.tex">
+              <span class="icon" style="margin-right:5px;">
+                <img src="./static/images/pdf.svg" alt="PDF" />
+              </span>
+              <span>Paper</span>
+            </a>
+            <a class="navbar-item  pl-4 pr-4" href="https://github.com/anonymouse5202077/Humanoid-Everyday">
+              <span class="icon" style="margin-right:5px;">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span> </a>
+            <a href="https://youtu.be/4Bp0q3xHTxE" class="navbar-item  pl-4 pr-4">
+              <span class="icon" style="margin-right:5px;">
+                <img src="./static/images/youtube.svg" alt="Youtube" />
+              </span>
+              <span>Video</span> </a>
+            <a class="navbar-item  pl-4 pr-4" href="https://humanoid-everyday-eval.github.io">
+              <span class="icon" style="margin-right:5px;">
+                <i class="fas fa-cloud"></i>
+              </span>
+              <span>Cloud Eval</span> </a>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 12rem;">
+        Humanoid Everyday
+      </h1>
+      <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem;">
+        A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation
+      </h1>
+            <div class="column has-text-centered is-hidden-tablet">
+        <div class="publication-links">
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="icra.tex" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <img src="./static/images/pdf.svg" alt="PDF" />
+              </span>
+              <span>Paper</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="https://github.com/anonymouse5202077/Humanoid-Everyday" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span>
+            </a>
+          </span>
+          <!-- Video Link. -->
+          <span class="link-block">
+            <a href="https://youtu.be/4Bp0q3xHTxE" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <img src="./static/images/youtube.svg" alt="Youtube" />
+              </span>
+              <span>Video</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="https://humanoid-everyday-eval.github.io" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fas fa-cloud"></i>
+              </span>
+              <span>Cloud Eval</span>
+            </a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+</section>
+
+
+
+
+<section class="section is-medium" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified">
+        <h2 class="title is-2 has-text-centered">Abstract</h2>
+        <p>
+          From loco-motion to dextrous manipulation, humanoid robots have made remarkable strides in demonstrating complex full-body capabilities. However, the majority of current robot learning datasets and benchmarks mainly focus on stationary robot arms, and the few existing humanoid datasets are either confined to fixed environments or limited in task diversity, often lacking human-humanoid interaction and lower-body locomotion. Moreover, there are a few standardized evaluation platforms for benchmarking learning-based policies on humanoid data. In this work, we present Humanoid Everyday, a large-scale and diverse humanoid manipulation dataset characterized by extensive task variety involving dextrous object manipulation, human-humanoid interaction, locomotion-integrated actions, and more. Leveraging a highly efficient human-supervised teleoperation pipeline, Humanoid Everyday aggregates high-quality multimodal sensory data—including RGB, depth, LiDAR, and tactile inputs—together with natural language annotations, comprising 10.3k trajectories and over 3 million frames of data across 260 tasks across 7 broad categories. In addition, we conduct an analysis of representative policy learning methods on our dataset, providing insights into their strengths and limitations across different task categories. For standardized evaluation, we introduce a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. By releasing Humanoid Everyday along with our policy learning analysis and a standardized cloud-based evaluation platform, we intend to advance research in general-purpose humanoid manipulation and lay the groundwork for more capable and embodied robotic agents in real-world scenarios. Our dataset, data collection code, and cloud evaluation website are made publicly available on our project website.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="video">
+  <div class="container is-max-desktop">
+    <h2 class="title is-1 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
+    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="
+      https://www.youtube.com/embed/4Bp0q3xHTxE?si=ocAPm8KVAz-RZK59" title="UMI on Legs Technical Summary Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+
+
+
+
+
+<section class="section is-medium" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified">
+        <h2 class="title is-2 has-text-centered">Introduction</h2>
+        <p>
+          Recent progress in humanoid robotics has significantly reduced the embodiment gap, enabling robots to perform dynamic activities. However, collecting humanoid manipulation datasets remains challenging. Existing datasets mainly target stationary arms or mobile platforms with simple grippers. To address this, we introduce the Humanoid Everyday Dataset, a large-scale collection of 260 tasks across 7 categories that captures full-body locomotion, dexterous manipulation, and rich human-humanoid interactions in diverse environments. We also present an analysis of representative policy learning methods and a cloud-based evaluation platform.
+        </p>
+        <figure class="image is-5by3">
+          <img src="static/images/humanoid_everyday_overview.png" alt="Placeholder for Humanoid Everyday overview">
+        </figure>
+        <p class="has-text-centered"><b>Humanoid Everyday Overview.</b> Humanoid Everyday covers 7 distinct categories of humanoid manipulation tasks with rich multimodal information, and provides a cloud-based evaluation platform for standardized policy deployment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-medium" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified">
+        <h2 class="title is-2 has-text-centered">Humanoid Everyday Dataset</h2>
+        <p>
+          The dataset was collected using two Unitree humanoid robots: G1 and H1. The data was collected using a multi-processing teleoperation pipeline that enables low-latency teleoperation with high-frequency control. The dataset comprises 260 unique tasks, each with around 40 episodes. Each episode includes RGB video, depth maps, LiDAR, tactile feedback, and natural language task descriptions. The tasks are divided into seven categories: Basic Manipulation, Deformable Manipulation, Articulated Manipulation, Tool Use, High-Precision Manipulation, Human-Robot Interaction, and Loco-Manipulation.
+        </p>
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image is-5by3">
+              <img src="static/images/data_collection_pipeline.png" alt="Placeholder for data collection pipeline">
+            </figure>
+          </div>
+          <div class="column">
+            <figure class="image is-5by3">
+              <img src="static/images/data_collection_efficiency.png" alt="Placeholder for data collection efficiency">
+            </figure>
+          </div>
+        </div>
+        <p class="has-text-centered"><b>Data Collection Pipeline.</b> (a) We separate data streaming, data writing, robot control, and IK computation into distinct processes and threads to ensure reliable and efficient data collection. (b) Our pipeline substantially reduces control delay and enhances data collection efficiency.</p>
+        <figure class="image is-5by3">
+          <img src="static/images/task_distribution.png" alt="Placeholder for task distribution chart">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-medium" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified">
+        <h2 class="title is-2 has-text-centered">Evaluation</h2>
+        <p>
+          To enable systematic and reproducible evaluation of humanoid manipulation policies, we introduce a cloud-based evaluation platform tailored for humanoid robots. The platform enables remote policy deployment on locally hosted humanoid robots, which lowers the barrier to humanoid manipulation learning research and standardizes the evaluation process.
+        </p>
+        <figure class="image is-5by3">
+          <img src="static/images/evaluation_steps_per_minute.png" alt="Placeholder for evaluation steps per minute">
+        </figure>
+        <p class="has-text-centered"><b>Evaluation Steps per Minute with Human Interventions.</b> Our evaluation runs continuously for over 100 minutes before running out of battery, while only three human interventions were required due to motor overheating. The system maintained consistently high evaluation efficiency throughout the rest of the process.</p>
+        <figure class="image is-5by3">
+          <img src="static/images/evaluation_platform.png" alt="Placeholder for evaluation platform image">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-medium" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified">
+        <h2 class="title is-2 has-text-centered">Experiments</h2>
+        <p>
+          We evaluate a variety of imitation learning policies on the Humanoid Everyday dataset, including Diffusion Policy (DP), 3D Diffusion Policy (DP3), Action Chunking with Transformers (ACT), OpenVLA, and others. The results show that all end-to-end imitation policies struggle in humanoid manipulation tasks due to the high-dimensional action space. Large VLA models demonstrate more consistent and stable performance. We also show that pretraining on Humanoid Everyday can serve as an effective prior for large VLA models.
+        </p>
+        <figure class="image is-5by3">
+          <img src="static/images/ablation_on_humanoid_everyday_pretraining.png" alt="Placeholder for ablation study">
+        </figure>
+        <p class="has-text-centered"><b>Ablation on Humanoid Everyday Pretraining.</b> Performance comparison between direct task-specific finetuning and two-stage finetuning with Humanoid Everyday.</p>
+        <figure class="image is-5by3">
+          <img src="static/images/experiment_setup.png" alt="Placeholder for experiment setup image">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Dataset Viewer</h2>
+    <div class="tabs is-centered">
+      <ul>
+        <li class="is-active" data-tab="rgb-tab"><a>RGB</a></li>
+        <li data-tab="depth-tab"><a>Depth</a></li>
+        <li data-tab="lidar-tab"><a>LiDAR</a></li>
+        <li data-tab="tactile-tab"><a>Tactile</a></li>
+      </ul>
+    </div>
+    <div id="rgb-tab" class="tab-content">
+      <div class="columns is-centered">
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/rgb_image_1.png" alt="RGB Image 1">
+          </figure>
+        </div>
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/rgb_image_2.png" alt="RGB Image 2">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div id="depth-tab" class="tab-content" style="display: none;">
+      <div class="columns is-centered">
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/depth_image_1.png" alt="Depth Image 1">
+          </figure>
+        </div>
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/depth_image_2.png" alt="Depth Image 2">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div id="lidar-tab" class="tab-content" style="display: none;">
+      <div class="columns is-centered">
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/lidar_data_1.png" alt="LiDAR Data 1">
+          </figure>
+        </div>
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/lidar_data_2.png" alt="LiDAR Data 2">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div id="tactile-tab" class="tab-content" style="display: none;">
+      <div class="columns is-centered">
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/tactile_data_1.png" alt="Tactile Data 1">
+          </figure>
+        </div>
+        <div class="column">
+          <figure class="image is-5by3">
+            <img src="static/images/tactile_data_2.png" alt="Tactile Data 2">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Results. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Results</h2>
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="content">
+                <h3 class="title is-4">Loco-Manipulation</h3>
+                <video class="video"
+                       playsinline
+                       autoplay
+                       loop
+                       muted
+                       src="https://via.placeholder.com/480x270.mp4?text=Loco-Manipulation+Video"
+                       type="video/mp4"
+                       style="width: 80%; height: 80%; margin: 0 auto; display: block;"
+                ></video>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="title is-4">Human-Robot Interaction</h3>
+              <video class="video"
+                     playsinline
+                     autoplay
+                     loop
+                     muted
+                     src="https://via.placeholder.com/480x270.mp4?text=Human-Robot+Interaction+Video"
+                     type="video/mp4"
+                     style="width: 80%; height: 80%; margin: 0 auto; display: block;"
+              ></video>
+            </div>
+          </div>
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="content">
+                <h3 class="title is-4">High-Precision Manipulation</h3>
+                <video class="video"
+                       playsinline
+                       autoplay
+                       loop
+                       muted
+                       src="https://via.placeholder.com/480x270.mp4?text=High-Precision+Manipulation+Video"
+                       type="video/mp4"
+                       style="width: 80%; height: 80%; margin: 0 auto; display: block;"
+                ></video>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="title is-4">Tool Use</h3>
+              <video class="video"
+                     playsinline
+                     autoplay
+                     loop
+                     muted
+                     src="https://via.placeholder.com/480x270.mp4?text=Tool+Use+Video"
+                     type="video/mp4"
+                     style="width: 80%; height: 80%; margin: 0 auto; display: block;"
+              ></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Try Out Our Cloud Evaluation Platform!</h2>
+        <div class="content has-text-justified">
+          <p>
+            We provide a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. Click the button below to visit our evaluation website.
+          </p>
+          <a href="https://humanoid-everyday-eval.github.io" class="button is-primary is-rounded is-large">Go to Cloud Evaluation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{humanoid-everyday,
+  author    = {Anonymous Authors},
+  title     = {Humanoid Everyday: A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation},
+  journal   = {arXiv preprint},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template modified from <a href="https://nerfies.github.io/">NeRFies</a>, <a
+              href="https://huy-ha.github.io/scalingup/">Scaling Up Distilling Down</a>, and <a href="https://umi-on-legs.github.io/">Umi-on-legs</a>.
+          </p>
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow and modify the <a
+              href="https://github.com/nerfies/nerfies.github.io">source
+              code</a> of this website as long as
+            you link back to the <a href="https://nerfies.github.io/">NeRFies</a> page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tabs li');
+    const tabContent = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.getElementById(tab.dataset.tab);
+
+        tabs.forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+
+        tabContent.forEach(content => {
+          content.style.display = 'none';
+        });
+
+        target.style.display = 'block';
+      });
+    });
+  });
+</script>
+
+</body>
+
+</html>
