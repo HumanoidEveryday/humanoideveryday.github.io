@@ -3,9 +3,9 @@
   "task_name": "Pick up a tripod and stand it on the desk",
   "category": "Pick and Place",
   "text_description": "This task demonstrates complex manipulation where the humanoid robot picks up a tripod and carefully stands it upright on the desk, requiring balance, precision, and spatial reasoning.",
-  "egocentric_video": "./static/data/videos/pick-place/task-3/pick_up_a_tripod_and_stand_it_on_the_desk_egocentric.mp4",
-  "third_view_video": "./static/data/videos/pick-place/task-3/pick_up_a_tripod_and_stand_it_on_the_desk_nosound.mp4",
-  "point_cloud": "./static/data/point-clouds/pick-place/task-3/pointcloud.ply",
+  "egocentric_video": "./data_viewer/static/data/videos/pick-place/task-3/pick_up_a_tripod_and_stand_it_on_the_desk_egocentric.mp4",
+  "third_view_video": "./data_viewer/static/data/videos/pick-place/task-3/pick_up_a_tripod_and_stand_it_on_the_desk_nosound.mp4",
+  "point_cloud": "./data_viewer/static/data/point-clouds/pick-place/task-3/pointcloud.ply",
   "difficulty": "Advanced",
   "duration": "30 seconds",
   "tags": ["precision", "delicate", "fine-control", "accuracy"]

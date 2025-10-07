@@ -3,9 +3,9 @@
   "task_name": "Micro Assembly",
   "category": "High Precision",
   "text_description": "Assembling small mechanical components with sub-millimeter precision, requiring steady hands, fine motor control, and careful visual feedback.",
-  "egocentric_video": "./static/data/videos/high-precision/task-1/egocentric.mp4",
-  "third_view_video": "./static/data/videos/high-precision/task-1/third-view.mp4",
-  "point_cloud": "./static/data/point-clouds/high-precision/task-1/pointcloud.ply",
+  "egocentric_video": "./data_viewer/static/data/videos/high-precision/task-1/egocentric.mp4",
+  "third_view_video": "./data_viewer/static/data/videos/high-precision/task-1/third-view.mp4",
+  "point_cloud": "./data_viewer/static/data/point-clouds/high-precision/task-1/pointcloud.ply",
   "difficulty": "Advanced",
   "duration": "45 seconds",
   "tags": ["micro-assembly", "precision", "fine-control", "visual-feedback"]

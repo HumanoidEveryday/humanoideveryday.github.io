@@ -3,9 +3,9 @@
   "task_name": "Wipe a monitor with a cloth",
   "category": "Tool Use",
   "text_description": "This task demonstrates delicate cleaning where the humanoid robot uses a cloth to wipe a monitor screen, requiring gentle pressure, careful material handling, and precise surface coverage without damaging the display.",
-  "egocentric_video": "./static/data/videos/tool-use/task-3/wipe_a_monitor_with_a_cloth_egocentric.mp4",
-  "third_view_video": "./static/data/videos/tool-use/task-3/wipe_a_monitor_with_a_cloth_nosound.mp4",
-  "point_cloud": "./static/data/point-clouds/tool-use/task-3/pointcloud.ply",
+  "egocentric_video": "./data_viewer/static/data/videos/tool-use/task-3/wipe_a_monitor_with_a_cloth_egocentric.mp4",
+  "third_view_video": "./data_viewer/static/data/videos/tool-use/task-3/wipe_a_monitor_with_a_cloth_nosound.mp4",
+  "point_cloud": "./data_viewer/static/data/point-clouds/tool-use/task-3/pointcloud.ply",
   "difficulty": "Intermediate",
   "duration": "40 seconds",
   "tags": ["cloth", "monitor-cleaning", "delicate-handling", "surface-care"]

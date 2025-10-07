@@ -3,9 +3,9 @@
   "task_name": "Drawer Manipulation",
   "category": "Articulated Object",
   "text_description": "Opening and closing drawers with proper grip, force control, and spatial awareness to handle sliding mechanisms and avoid jamming.",
-  "egocentric_video": "./static/data/videos/articulated/task-2/egocentric.mp4",
-  "third_view_video": "./static/data/videos/articulated/task-2/third-view.mp4",
-  "point_cloud": "./static/data/point-clouds/articulated/task-2/pointcloud.ply",
+  "egocentric_video": "./data_viewer/static/data/videos/articulated/task-2/egocentric.mp4",
+  "third_view_video": "./data_viewer/static/data/videos/articulated/task-2/third-view.mp4",
+  "point_cloud": "./data_viewer/static/data/point-clouds/articulated/task-2/pointcloud.ply",
   "difficulty": "Intermediate",
   "duration": "15 seconds",
   "tags": ["drawer", "sliding", "force-control", "spatial-awareness"]

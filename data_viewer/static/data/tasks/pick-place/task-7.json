@@ -3,9 +3,9 @@
   "task_name": "Stack rolls of paper towel on top of each other",
   "category": "Pick and Place",
   "text_description": "This task demonstrates stacking manipulation where the humanoid robot picks up rolls of paper towels and stacks them on top of each other, requiring balance, spatial awareness, and careful placement to maintain stability.",
-  "egocentric_video": "./static/data/videos/pick-place/task-7/stack_a_rolls_of_paper_towel_on_top_of_the_other_egocentric.mp4",
-  "third_view_video": "./static/data/videos/pick-place/task-7/stack_a_rolls_of_paper_towel_on_top_of_the_other_nosound.mp4",
-  "point_cloud": "./static/data/point-clouds/pick-place/task-7/pointcloud.ply",
+  "egocentric_video": "./data_viewer/static/data/videos/pick-place/task-7/stack_a_rolls_of_paper_towel_on_top_of_the_other_egocentric.mp4",
+  "third_view_video": "./data_viewer/static/data/videos/pick-place/task-7/stack_a_rolls_of_paper_towel_on_top_of_the_other_nosound.mp4",
+  "point_cloud": "./data_viewer/static/data/point-clouds/pick-place/task-7/pointcloud.ply",
   "difficulty": "Advanced",
   "duration": "30 seconds",
   "tags": ["precision", "delicate", "fine-control", "accuracy"]

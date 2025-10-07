@@ -3,9 +3,9 @@
   "task_name": "Use a duster to dust the desk",
   "category": "Tool Use",
   "text_description": "This task demonstrates cleaning tool usage where the humanoid robot uses a duster to clean a desk surface, requiring proper motion patterns, systematic coverage, and effective dust removal techniques.",
-  "egocentric_video": "./static/data/videos/tool-use/task-5/use_a_duster_to_dust_the_desk_egocentric.mp4",
-  "third_view_video": "./static/data/videos/tool-use/task-5/use_a_duster_to_dust_the_desk_nosound.mp4",
-  "point_cloud": "./static/data/point-clouds/tool-use/task-5/pointcloud.ply",
+  "egocentric_video": "./data_viewer/static/data/videos/tool-use/task-5/use_a_duster_to_dust_the_desk_egocentric.mp4",
+  "third_view_video": "./data_viewer/static/data/videos/tool-use/task-5/use_a_duster_to_dust_the_desk_nosound.mp4",
+  "point_cloud": "./data_viewer/static/data/point-clouds/tool-use/task-5/pointcloud.ply",
   "difficulty": "Beginner",
   "duration": "30 seconds",
   "tags": ["cleaning", "duster", "surface-coverage", "motion-patterns"]
