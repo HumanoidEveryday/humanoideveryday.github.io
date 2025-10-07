@@ -4,49 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="UMI on Legs: Making Manipulation Policies Mobile with a Manipulation-Centric Whole-body Controller">
-  <meta name="keywords" content="Robotics, Quadruped, Whole-body Control, Whole-body Manipulation">
+    content="Humanoid Everyday: A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation">
+  <meta name="keywords" content="Humanoid, Robotics, Dataset, Manipulation, Whole-body Control, Robot Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Humanoid Everyday</title>
+  <link rel="icon" type="image/png" href="./static/images/usc_favicon.png">
 
-  <link rel="apple-touch-icon" sizes="57x57"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180"
-    href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png" />
 
-  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-196x196.png"
-    sizes="196x196" />
-  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-192x192.png"
-    sizes="192x192" />
-  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-128.png" sizes="128x128" />
-  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-16x16.png" sizes="16x16" />
-
-  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
-  <meta name="application-name" content="Stanford University" />
-  <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
-  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ38WT2YPD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -91,37 +57,44 @@
           <div class="navbar-end">
             <a class="navbar-item pl-4 pr-4" href="icra.tex">
               <span class="icon" style="margin-right:5px;">
-                <img src="./static/images/pdf.svg" alt="PDF" />
+                <img src="./static/images/arxiv.svg" alt="PDF" />
               </span>
               <span>Paper</span>
             </a>
-            <a class="navbar-item  pl-4 pr-4" href="https://github.com/anonymouse5202077/Humanoid-Everyday">
-              <span class="icon" style="margin-right:5px;">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Code</span> </a>
-            <a href="https://youtu.be/4Bp0q3xHTxE" class="navbar-item  pl-4 pr-4">
+            <a href="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" class="navbar-item  pl-4 pr-4">
               <span class="icon" style="margin-right:5px;">
                 <img src="./static/images/youtube.svg" alt="Youtube" />
               </span>
               <span>Video</span> </a>
-            <a class="navbar-item  pl-4 pr-4" href="https://humanoid-everyday-eval.github.io">
-              <span class="icon" style="margin-right:5px;">
-                <i class="fas fa-cloud"></i>
-              </span>
-              <span>Cloud Eval</span> </a>
-            <a class="navbar-item pl-4 pr-4" href="https://docs.google.com/spreadsheets/d/158Wzf8Xywky3aHJSCfp3OZxf4bkhzAJdcG94eHf8gVc/edit?gid=1307250382#gid=1307250382">
-              <span class="icon" style="margin-right:5px;">
-                <i class="fas fa-database"></i>
-              </span>
-              <span>Dataset</span>
-            </a>
+              <a class="navbar-item pl-4 pr-4" href="https://huggingface.co/datasets/zhenyuzhao/humanoid-everyday/" target="_blank" rel="noopener noreferrer">
+                <span class="icon" style="margin-right:5px;">
+                  <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
+                    alt="Hugging Face" 
+                    style="width: 20px; height: 20px; vertical-align: middle;">
+                </span>
+                <span>Dataset</span>
+              </a>
             <a class="navbar-item pl-4 pr-4" href="./data_viewer/index.html">
               <span class="icon" style="margin-right:5px;">
                 <i class="fas fa-eye"></i>
               </span>
               <span>Data Viewer</span>
             </a>
+            <a class="navbar-item  pl-4 pr-4" href="https://github.com/anonymouse5202077/Humanoid-Everyday">
+              <span class="icon" style="margin-right:5px;">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Data Collection</span> </a>
+            <a class="navbar-item  pl-4 pr-4" href="https://github.com/ausbxuse/Humanoid-Everyday">
+              <span class="icon" style="margin-right:5px;">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Dataloader</span> </a>
+            <a class="navbar-item  pl-4 pr-4" href="https://humanoid-everyday-eval.github.io">
+              <span class="icon" style="margin-right:5px;">
+                <i class="fas fa-cloud"></i>
+              </span>
+              <span>Cloud Eval</span> </a>
           </div>
         </div>
       </div>
@@ -139,52 +112,68 @@
       </h1>
       <div class="is-size-3 publication-authors">
         <span class="author-block">
-          <a href="https://keunhong.com/">
-            Keunhong Park
+          <a href="#">
+            Zhenyu Zhao
+          </a><sup>*1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#">
+            Hongyi Jing
+          </a><sup>*1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#">
+            Xiawei Liu
           </a><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://utkarshsinha.com/">
-            Utkarsh Sinha
-          </a><sup>2</sup>,
+          <a href="#">
+            Jiageng Mao
+          </a><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://jonbarron.info/">
-            Jonathan T. Barron
-          </a><sup>2</sup>,
+          <a href="#">
+            Abha Jha
+          </a><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://sofienbouaziz.com/">
-            Sofien Bouaziz
-          </a><sup>2</sup>,
+          <a href="#">
+            Hanwen Yang
+          </a><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=r_G_2_0AAAAJ&hl=en">
-            Dan B Goldman
-          </a><sup>2</sup>,
+          <a href="#">
+            Rong Xue
+          </a><sup>1</sup>
         </span>
         <span class="author-block">
-          <a href="https://homes.cs.washington.edu/~seitz/">
-            Steven M. Seitz
-          </a><sup>1,2</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://ricardobrualla.com/">
-            Ricardo Martin-Brualla
+          <a href="#">
+            Sergey Zakharov
           </a><sup>2</sup>
+        </span>
+        <span class="author-block">
+          <a href="#">
+            Vitor Guizilini
+          </a><sup>2</sup>
+        </span>
+        <span class="author-block">
+          <a href="https://yuewang.xyz">
+            Yue Wang
+          </a><sup>1</sup>
         </span>
       </div>
       <div class="is-size-5 publication-authors">
-        <span class="author-block"><sup>1</sup>University of Washington,</span>
-        <span class="author-block"><sup>2</sup>Google Research</span>
+        <span class="author-block"><sup>1</sup>University of Southern California,</span>
+        <span class="author-block"><sup>2</sup>Toyota Research Institute</span>
       </div>
+      <p class="has-text-centered"><sup>*</sup>Equal contribution</p>
             <div class="column has-text-centered is-hidden-tablet">
         <div class="publication-links">
           <!-- PDF Link. -->
           <span class="link-block">
             <a href="icra.tex" class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
-                <img src="./static/images/pdf.svg" alt="PDF" />
+                <img src="./static/images/arxiv.svg" alt="PDF" />
               </span>
               <span>Paper</span>
             </a>
@@ -199,7 +188,7 @@
           </span>
           <!-- Video Link. -->
           <span class="link-block">
-            <a href="https://youtu.be/4Bp0q3xHTxE" class="external-link button is-normal is-rounded is-dark">
+            <a href="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                 <img src="./static/images/youtube.svg" alt="Youtube" />
               </span>
@@ -207,7 +196,7 @@
             </a>
           </span>
           <span class="link-block">
-            <a href="https://humanoid-everyday-eval.github.io" class="external-link button is-normal is-rounded is-dark">
+            <a href="./cloud_evaluation_coming_soon.html" class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                 <i class="fas fa-cloud"></i>
               </span>
@@ -227,13 +216,13 @@
 
 
 
-<section class="section is-medium" id="overview">
+<section class="section" id="overview">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-2 has-text-centered">Abstract</h2>
-        <p>
-          From loco-motion to dextrous manipulation, humanoid robots have made remarkable strides in demonstrating complex full-body capabilities. However, the majority of current robot learning datasets and benchmarks mainly focus on stationary robot arms, and the few existing humanoid datasets are either confined to fixed environments or limited in task diversity, often lacking human-humanoid interaction and lower-body locomotion. Moreover, there are a few standardized evaluation platforms for benchmarking learning-based policies on humanoid data. In this work, we present Humanoid Everyday, a large-scale and diverse humanoid manipulation dataset characterized by extensive task variety involving dextrous object manipulation, human-humanoid interaction, locomotion-integrated actions, and more. Leveraging a highly efficient human-supervised teleoperation pipeline, Humanoid Everyday aggregates high-quality multimodal sensory data—including RGB, depth, LiDAR, and tactile inputs—together with natural language annotations, comprising 10.3k trajectories and over 3 million frames of data across 260 tasks across 7 broad categories. In addition, we conduct an analysis of representative policy learning methods on our dataset, providing insights into their strengths and limitations across different task categories. For standardized evaluation, we introduce a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. By releasing Humanoid Everyday along with our policy learning analysis and a standardized cloud-based evaluation platform, we intend to advance research in general-purpose humanoid manipulation and lay the groundwork for more capable and embodied robotic agents in real-world scenarios.
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+          <p>
+            From loco-motion to dextrous manipulation, humanoid robots have made remarkable strides in demonstrating complex full-body capabilities. However, the majority of current robot learning datasets and benchmarks mainly focus on stationary robot arms, and the few existing humanoid datasets are either confined to fixed environments or limited in task diversity, often lacking human-humanoid interaction and lower-body locomotion. Moreover, there are a few standardized evaluation platforms for benchmarking learning-based policies on humanoid data. In this work, we present <strong>Humanoid Everyday</strong>, a large-scale and diverse humanoid manipulation dataset characterized by extensive task variety involving dextrous object manipulation, human-humanoid interaction, locomotion-integrated actions, and more. Leveraging a highly efficient human-supervised teleoperation pipeline, <strong>Humanoid Everyday</strong> aggregates high-quality multimodal sensory data, including RGB, depth, LiDAR, and tactile inputs, together with natural language annotations, comprising 10.3k trajectories and over 3 million frames of data across 260 tasks across 7 broad categories. In addition, we conduct an analysis of representative policy learning methods on our dataset, providing insights into their strengths and limitations across different task categories. For standardized evaluation, we introduce a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. By releasing <strong>Humanoid Everyday</strong> along with our policy learning analysis and a standardized cloud-based evaluation platform, we intend to advance research in general-purpose humanoid manipulation and lay the groundwork for more capable and embodied robotic agents in real-world scenarios.
         </p>
       </div>
     </div>
@@ -243,9 +232,8 @@
 
 <section class="section" id="video">
   <div class="container is-max-desktop">
-    <h2 class="title is-1 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
-    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="
-      https://www.youtube.com/embed/4Bp0q3xHTxE?si=ocAPm8KVAz-RZK59" title="UMI on Legs Technical Summary Video"
+    <h2 class="title is-3 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
+    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" title="Humanoid Everyday Technical Summary Video"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -256,105 +244,178 @@
 
 
 
-<section class="section is-medium" id="overview">
+<section class="section" id="overview">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-2 has-text-centered">Overview</h2>
-        <p>
-          Recent progress in humanoid robotics has significantly reduced the embodiment gap, enabling robots to perform dynamic activities. However, collecting humanoid manipulation datasets remains challenging. Existing datasets mainly target stationary arms or mobile platforms with simple grippers. To address this, we introduce the Humanoid Everyday Dataset, a large-scale collection of 260 tasks across 7 categories that captures full-body locomotion, dexterous manipulation, and rich human-humanoid interactions in diverse environments. We also present an analysis of representative policy learning methods and a cloud-based evaluation platform.
-        </p>
+        <h2 class="title is-3 has-text-centered">Overview</h2>
+        <!-- <p> -->
+        <!--   Recent progress in humanoid robotics has significantly reduced the embodiment gap, enabling robots to perform dynamic activities such as running, dancing, and complex full-body movements. However, collecting humanoid manipulation datasets remains challenging. It requires operating in both indoor and outdoor environments, executing a wide range of tasks, and leveraging the humanoid form through bimanual coordination, full-body motion, and human-centric interactions. Existing datasets mainly target stationary arms or mobile platforms with simple grippers and wheeled bases; even egocentric efforts like Humanoid Policy emphasize repetitive tasks with limited locomotion. These limitations underscore the need for a diverse, interactive humanoid manipulation dataset that captures the full spectrum of human-like capabilities across varied environments and task complexities. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   Beyond the scarcity of diverse and interactive datasets, there is also a notable lack of standardized evaluation practices for humanoid manipulation. Although recent deep learning methods have demonstrated improving performance in robotic manipulation, there remains a need for a unified evaluation framework for systematically comparing these approaches in the context of humanoid tasks. The absence of an evaluation standard makes it challenging to conduct fair and rigorous comparisons across policies, limiting our understanding of what truly drives effective humanoid manipulation in diverse scenarios. Together, these limitations lead to a ponderous question: what should an effective humanoid manipulation dataset look like to bridge the gaps in diversity, embodiment, and evaluation in the development of more intelligent robotic agents? -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   In this work, we introduce the Humanoid Everyday Dataset, a large-scale collection of 260 tasks across 7 categories that captures full-body locomotion, dexterous manipulation, and rich human-humanoid interactions in diverse environments. Unlike prior datasets limited in scope or simple settings, we accumulate more comprehensive and human-like tasks across various environments, retaining human supervision for data accuracy. Our additional technical re-engineering of the Unitree official teleoperation script enables sub-millisecond data synchronization across different modalities. At 30Hz, our pipeline captures high-resolution sensor and action data from every humanoid episode. We record each task with egocentric RGB video, depth information, LiDAR scans, tactile and Inertia Measurement Unit (IMU) information, joint poses, joint actions, and natural language annotations. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   Beyond data collection, we analyzed representative policy learning methods for Humanoid Everyday, highlighting strengths and limitations across different task categories. To further support the community, we introduce a cloud-based evaluation platform that allows researchers to upload their policies, execute them within our standardized real-world environment, and receive detailed performance feedback. Unlike existing cloud evaluation systems that focus on robotic arms or simulated agents, ours is the first platform designed for humanoid, which aims to lower the barrier to fair comparison and fosters collaborative progress in humanoid robotics. Together, Humanoid Everyday and our evaluation system offer a valuable foundation for advancing research in general-purpose humanoid manipulation for developing more robust, capable, and embodied robotic agents in real-world scenarios. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   Our contributions are threefold: (1) a large-scale multimodal humanoid manipulation dataset collected in diverse real-world scenarios with an optimized teleoperation pipeline; (2) an analysis of representative policy learning methods on Humanoid Everyday, highlighting their strengths and limitations across task categories; and (3) a cloud-based evaluation platform that enables standardized, reproducible, and collaborative research in humanoid manipulation. -->
+        <!-- </p> -->
         <figure class="image" style="margin: 2em 0;">
-          <img src="static/images/block-2.jpg" alt="Placeholder for Humanoid Everyday overview">
+          <img src="static/images/block-2.jpg" alt="Humanoid Everyday Overview. Humanoid Everyday covers 260 tasks across 7 distinct categories of humanoid manipulation tasks with rich multimodal information recorded at 30Hz, and provides a cloud-based evaluation platform for standardized policy deployment.">
         </figure>
-        <p class="has-text-centered"><b>Humanoid Everyday Overview.</b> Humanoid Everyday covers 7 distinct categories of humanoid manipulation tasks with rich multimodal information, and provides a cloud-based evaluation platform for standardized policy deployment.</p>
+        <p class="has-text-centered"><b>Humanoid Everyday Overview.</b> Humanoid Everyday Overview. Humanoid Everyday covers 260 tasks across 7 distinct categories of humanoid manipulation tasks with rich multimodal information recorded at 30Hz, and provides a cloud-based evaluation platform for standardized policy deployment.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section is-medium" id="overview">
+<section class="section" id="overview">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-2 has-text-centered">Humanoid Everyday Dataset</h2>
-        <p>
-          The dataset was collected using two Unitree humanoid robots: G1 and H1. The data was collected using a multi-processing teleoperation pipeline that enables low-latency teleoperation with high-frequency control. The dataset comprises 260 unique tasks, each with around 40 episodes. Each episode includes RGB video, depth maps, LiDAR, tactile feedback, and natural language task descriptions. The tasks are divided into seven categories: Basic Manipulation, Deformable Manipulation, Articulated Manipulation, Tool Use, High-Precision Manipulation, Human-Robot Interaction, and Loco-Manipulation.
-        </p>
-        <div class="rows is-centered">
-          <div class="row">
-            <figure class="image">
-              <img src="static/images/datacollection.png" width="100%" height="600px" style="border: none;"></img>
-            </figure>
+        <h2 class="title is-3 has-text-centered">Humanoid Everyday Dataset</h2>
+        <!-- <p> -->
+        <!--   To support learning and evaluation of humanoid manipulation across various real-world tasks, we introduce the Humanoid Everyday Dataset, a large-scale, high-quality dataset collected with full-body humanoid robots, spanning diverse tasks including human-humanoid interaction and loco-manipulation. In the following subsections, we describe the hardware setup, including the humanoid platforms and the operation interface used for data collection. We then outline our data collection pipeline and describe how our method improves the overall efficiency. Finally, we present the composition and structure of the dataset. -->
+        <!-- </p> -->
+        <!---->
+        <!-- <h3 class="title is-3">Environment setup</h3> -->
+        <!-- <h4 class="title is-4">Hardware</h4> -->
+        <!-- <p> -->
+        <!--   We gather data with two Unitree humanoid robots: the 29-degrees of freedom (DoF) <b>G1</b> with 7-DoF three-fingered dexterous hands (Dex3-1) and the 27-DoF <b>H1</b> with 6-DoF INSPIRE hands. Both the H1 and G1 humanoid robots are equipped with Intel RealSense RGB-D cameras and a Livox LiDAR system. In addition, the G1's Dex3-1 hands possess tactile sensors, which further enhances the multimodality of our dataset. -->
+        <!-- </p> -->
+        <!-- <h4 class="title is-4">Teleoperation interface</h4> -->
+        <!-- <p> -->
+        <!--   The operator wears an Apple Vision Pro to capture wrist and finger keypoints using its cameras on the bottom. The finger motions are mapped onto the robot’s dexterous hands via the dex-retargeting system for the robot hands to complete basic manipulations. The wrist poses are converted into arm joint commands through a Pinocchio-based inverse kinematics algorithm, enabling full upper-body teleoperation. -->
+        <!-- </p> -->
+        <!---->
+        <!-- <h3 class="title is-3">Efficient and Scalable Data Collection</h3> -->
+        <!-- <p> -->
+        <!--   We propose a multi-processing teleoperation pipeline, re-engineered upon the official Unitree teleoperation library and significantly improved for large-scale, high-quality humanoid data collection. Our intuitive and robust design enables low-latency teleoperation with high-frequency control while ensuring synchronized, high-quality data streams. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   As opposed to the blocking and synchronous design in the Unitree official teleoperation script, our data collection pipeline uses multi-processing and asynchronous IO reading and writing to ensure high-frequency teleoperation and high-quality data collection. Specifically, we decouple IO data from inverse kinematics (IK) computation and robot joint control in separate processes, with shared memory buffers facilitating fast and low-latency inter-process communication. This design allocates more computational resources to the IK solver, enabling smoother and higher-frequency teleoperation control. In addition, data recording and sensor processing are handled asynchronously in parallel threads within main pipeline process, ensuring nonblocking and temporally aligned data collection. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   Additionally, we provide a simple data-collection interface that hides system complexity, stream the robot’s binocular IR feeds to the VR headset for better situational awareness, and support multiple recording sessions per run without restarting the entire program. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   All data collection was performed on a laptop equipped with an 11th Gen Intel i7 CPU. Our pipeline halves data collection time compared to the official Unitree teleoperation system, while the control delay decreases from 500 ms to 2 ms. These improvements highlight the efficiency and scalability of our pipeline, enabling rapid and high-quality data acquisition for complex humanoid tasks. -->
+        <!-- </p> -->
+        <!---->
+        <!-- <div class="columns is-centered"> -->
+        <!--   <div class="column"> -->
+        <!--     <figure class="image"> -->
+        <!--       <iframe src="static/images/datacollection.pdf" width="100%" height="600px" style="border: none;"></iframe> -->
+        <!--     </figure> -->
+        <!--     <p class="has-text-centered"><b>Data Collection Pipeline.</b> (a) We separate data streaming, data writing, robot control, and IK computation into distinct processes and threads to ensure reliable and efficient data collection.</p> -->
+        <!--   </div> -->
+        <!--   <div class="column"> -->
+        <!--     <figure class="image"> -->
+        <!--       <img src="static/images/operation.pdf" alt="Data Collection Efficiency"> -->
+        <!--     </figure> -->
+        <!--     <p class="has-text-centered"><b>Data Collection Efficiency.</b> (b) Our pipeline substantially reduces control delay and enhances data collection efficiency.</p> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!---->
+        <!-- <h3 class="title is-3">A Diverse Collection of Everyday Humanoid Tasks</h3> -->
+        <!-- <p> -->
+        <!--   Humanoid Everyday is a large-scale, diverse collection of humanoid manipulation tasks, comprising seven main distinct categories including Basic Manipulation (basic object pick-and-place manipulation), Deformable Manipulation (interacting with cloths or other deformable objects), Articulated Manipulation (operating hinged or jointed structures), Tool Use (utilizing external objects to achieve goals), High-Precision Manipulation (performing difficult tasks requiring high accuracy), Human-Robot Interaction (engaging in cooperative actions with humans), and Loco-Manipulation. Our tasks are performed in indoor and outdoor environments, involving complex interactions with surrounding objects and dynamic settings. Additionally, a portion of these tasks require lower-body locomotion, adding further diversity to the dataset. This variety in environmental contexts enriches the collected data and supports the development of generalizable policies capable of adapting to diverse real-world scenarios. -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--   Humanoid Everyday comprises 260 unique tasks, each with ~40 episodes to provide sufficient training data. We record each task with a rich set of sensory modalities, offering a comprehensive view of humanoid interactions. Each episode includes RGB video, depth maps, LiDAR, tactile feedback, and natural language task descriptions. This multimodal design enables richer training trajectories, supporting the development of more adaptable and context-aware humanoid policies. -->
+        <!-- </p> -->
+
+        <div class="columns is-centered">
+          <div class="column">
+            <div style="position: relative; display: block; overflow: hidden;">
+              <img src="./static/videos/video1-ezgif.com-crop.gif" alt="Basic Manipulation GIF" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              <p class="gif-caption" style="position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">Loco-Manipulation</p>
+            </div>
           </div>
-          <div class="row">
-            <figure class="image">
-              <img src="static/images/operation.png" alt="Placeholder for data collection efficiency">
-            </figure>
+          <div class="column">
+            <div style="position: relative; display: block; overflow: hidden;">
+              <img src="./static/videos/video2-ezgif.com-crop.gif" alt="Deformable Manipulation GIF" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              <p class="gif-caption" style="position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">Deformable Manipulation</p>
+            </div>
+          </div>
+          <div class="column">
+            <div style="position: relative; display: block; overflow: hidden;">
+              <img src="./static/videos/video6-ezgif.com-crop.gif" alt="Articulated Manipulation GIF" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              <p class="gif-caption" style="position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">Articulated Manipulation</p>
+            </div>
           </div>
         </div>
-        <p class="has-text-centered"><b>Data Collection Pipeline.</b> (a) We separate data streaming, data writing, robot control, and IK computation into distinct processes and threads to ensure reliable and efficient data collection. (b) Our pipeline substantially reduces control delay and enhances data collection efficiency.</p>
-        <figure class="image" style="margin: 2em 0;">
-          <img src="static/images/task_distribution.png" alt="Placeholder for task distribution chart">
-        </figure>
-        <p class="has-text-centered"><b>Task Distribution.</b> The dataset is balanced across seven diverse categories of manipulation tasks.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section is-medium" id="overview">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-2 has-text-centered">Evaluation</h2>
-        <p>
-          To enable systematic and reproducible evaluation of humanoid manipulation policies, we introduce a cloud-based evaluation platform tailored for humanoid robots. The platform enables remote policy deployment on locally hosted humanoid robots, which lowers the barrier to humanoid manipulation learning research and standardizes the evaluation process.
-        </p>
-        <figure class="image">
-          <img src="static/images/intervention_eval.png" alt="Placeholder for evaluation steps per minute">
-        </figure>
-        <p class="has-text-centered"><b>Evaluation Steps per Minute with Human Interventions.</b> Our evaluation runs continuously for over 100 minutes before running out of battery, while only three human interventions were required due to motor overheating. The system maintained consistently high evaluation efficiency throughout the rest of the process.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section is-medium" id="overview">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-2 has-text-centered">Experiments</h2>
-        <p>
-          We evaluate a variety of imitation learning policies on the Humanoid Everyday dataset, including Diffusion Policy (DP), 3D Diffusion Policy (DP3), Action Chunking with Transformers (ACT), OpenVLA, and others. The results show that all end-to-end imitation policies struggle in humanoid manipulation tasks due to the high-dimensional action space. Large VLA models demonstrate more consistent and stable performance. We also show that pretraining on Humanoid Everyday can serve as an effective prior for large VLA models.
-        </p>
-        <figure class="image">
-          <img src="static/images/experiments.jpg" alt="Placeholder for ablation study">
-        </figure>
-        <p class="has-text-centered"><b>Ablation on Humanoid Everyday Pretraining.</b> Performance comparison between direct task-specific finetuning and two-stage finetuning with Humanoid Everyday.</p>
-        <figure class="image">
-          <img src="./static/images/humanoid_prior_ablation.png" alt="Placeholder for experiment setup image">
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Results</h2>
-          <div class="is-centered">
-            <img src="./static/images/results.png" alt="PDF" />
+        <div class="columns is-centered">
+          <div class="column">
+            <div style="position: relative; display: block; overflow: hidden;">
+              <img src="./static/videos/video5-ezgif.com-crop.gif" alt="Tool Use GIF" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              <p class="gif-caption" style="position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">Tool Use</p>
+            </div>
           </div>
-          <div class="is-centered">
-            <img src="./static/images/humanoid_prior_ablation.png" alt="PDF" />
+          <div class="column">
+            <div style="position: relative; display: block; overflow: hidden;">
+              <img src="./static/videos/video3-ezgif.com-crop.gif" alt="High-Precision Manipulation GIF" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              <p class="gif-caption" style="position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">High-Precision Manipulation</p>
+            </div>
+          </div>
+          <div class="column">
+            <div style="position: relative; display: block; overflow: hidden;">
+              <img src="./static/videos/video4-ezgif.com-crop.gif" alt="Human-Robot Interaction GIF" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              <p class="gif-caption" style="position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">Human-Robot Interaction</p>
+            </div>
           </div>
         </div>
+
+        <figure class="image" style="margin: 2em 0;">
+          <img src="static/images/task_distribution.png" alt="Task Distribution Chart">
+        </figure>
+        <p class="has-text-centered"><b>Task Distribution.</b> Distribution of tasks and skill categories in the Humanoid Everyday Dataset.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- <section class="section" id="overview"> -->
+<!--   <div class="container is-max-desktop"> -->
+<!--     <div class="columns is-centered"> -->
+<!--       <div class="column is-four-fifths has-text-justified"> -->
+<!--         <h2 class="title is-2 has-text-centered">Evaluation</h2> -->
+<!--         <p> -->
+<!--           To enable systematic and reproducible evaluation of humanoid manipulation policies, we introduce a cloud-based evaluation platform tailored for humanoid robots. The platform enables remote policy deployment on locally hosted humanoid robots, which lowers the barrier to humanoid manipulation learning research and standardizes the evaluation process. -->
+<!--         </p> -->
+<!--         <figure class="image"> -->
+<!--           <img src="static/images/intervention_eval.png" alt="Placeholder for evaluation steps per minute"> -->
+<!--         </figure> -->
+<!--         <p class="has-text-centered"><b>Evaluation Steps per Minute with Human Interventions.</b> Our evaluation runs continuously for over 100 minutes before running out of battery, while only three human interventions were required due to motor overheating. The system maintained consistently high evaluation efficiency throughout the rest of the process.</p> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </section> -->
+
+<!-- <section class="section" id="overview"> -->
+<!--   <div class="container is-max-desktop"> -->
+<!--     <div class="columns is-centered"> -->
+<!--       <div class="column is-four-fifths has-text-justified"> -->
+<!--         <h2 class="title is-2 has-text-centered">Experiments</h2> -->
+<!--         <p> -->
+<!--           We evaluate a variety of imitation learning policies on the Humanoid Everyday dataset, including Diffusion Policy (DP), 3D Diffusion Policy (DP3), Action Chunking with Transformers (ACT), OpenVLA, and others. The results show that all end-to-end imitation policies struggle in humanoid manipulation tasks due to the high-dimensional action space. Large VLA models demonstrate more consistent and stable performance. We also show that pretraining on Humanoid Everyday can serve as an effective prior for large VLA models. -->
+<!--         </p> -->
+<!--         <figure class="image"> -->
+<!--           <img src="static/images/experiments.jpg" alt="Placeholder for ablation study"> -->
+<!--         </figure> -->
+<!--         <p class="has-text-centered"><b>Ablation on Humanoid Everyday Pretraining.</b> Performance comparison between direct task-specific finetuning and two-stage finetuning with Humanoid Everyday.</p> -->
+<!--         <figure class="image"> -->
+<!--           <img src="./static/images/humanoid_prior_ablation.png" alt="Placeholder for experiment setup image"> -->
+<!--         </figure> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </section> -->
+<!---->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -365,7 +426,7 @@
           <p>
             We provide a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. Click the button below to visit our evaluation website.
           </p>
-          <a href="https://humanoid-eval.zhenyuzhao.com" class="button is-primary is-rounded is-large">Go to Cloud Evaluation</a>
+          <a href="./cloud_evaluation_coming_soon.html" class="button is-primary is-rounded is-large">Go to Cloud Evaluation</a>
         </div>
       </div>
     </div>
@@ -375,11 +436,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{humanoid-everyday,
-  author    = {Anonymous Authors},
+    <pre><code>@article{zhao2025humanoid-everyday,
+  author    = {Zhenyu Zhao and Hongyi Jing and Xiawei Liu and Jiageng Mao and Abha Jha and Hanwen Yang and Rong Xue and Sergey Zakharov and Vitor Guizilini and Yue Wang}, 
   title     = {Humanoid Everyday: A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation},
-  journal   = {arXiv preprint},
   year      = {2025},
+  primaryClass={cs.RO},
 }</code></pre>
   </div>
 </section>
