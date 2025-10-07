@@ -147,15 +147,20 @@
         }
 
         .panel {
-            padding: 12px 20px;
+            padding: 0;
             background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-radius: 0 0 12px 12px;
             margin-bottom: 8px;
             border: 1px solid #e5e5e7;
             border-top: none;
+        }
+
+        .panel.active {
+            padding: 12px 20px;
+            max-height: 800px;
         }
 
         /* Modern Category Container */
@@ -676,12 +681,8 @@
             // Toggle active class on button
             button.classList.toggle('active');
             
-            // Toggle panel visibility
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
+            // Toggle panel visibility with active class
+            panel.classList.toggle('active');
         }
 
         // Task selection functionality
