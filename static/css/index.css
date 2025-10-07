@@ -68,6 +68,7 @@ body {
 }
 
 .publication-authors {
+  /*color: #4286f4;*/
 }
 
 .publication-authors a {
@@ -179,4 +180,27 @@ transition: opacity 1.0s;
 .hero-foot {
   z-index: 2; /* Ensure text is above the overlay */
   transition: opacity 1.0s;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #fc317e 0%, #f69c5e 25%, #f6c177 50%, #9cce6a 75%, #4fc1ff 100%);
+    background-size: auto;
+    background-clip: border-box;
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
