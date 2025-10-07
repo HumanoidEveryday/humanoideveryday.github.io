@@ -549,6 +549,129 @@
     </section>
 
     <script>
+        // Embedded task data for file:// protocol compatibility
+        const taskData = {
+            "pick-place-1": {
+                "task_id": "pick-place-1",
+                "task_name": "Lift a kettle from its base",
+                "category": "Pick and Place",
+                "text_description": "This task demonstrates basic pick and place operations where the humanoid robot grasps a kettle from its base and places it on the table.",
+                "egocentric_video": "./static/data/videos/pick-place/task-1/lyft_a_kettle_from_base_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-1/lyft_a_kettle_from_base_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-1/pointcloud.ply",
+                "difficulty": "Beginner",
+                "duration": "15 seconds",
+                "tags": ["grasping", "manipulation", "basic", "precision"]
+            },
+            "pick-place-2": {
+                "task_id": "pick-place-2",
+                "task_name": "Place a cube in a bag",
+                "category": "Pick and Place",
+                "text_description": "This task demonstrates precision pick and place operations where the humanoid robot grasps a cube and carefully places it inside a bag, requiring spatial awareness and gentle manipulation.",
+                "egocentric_video": "./static/data/videos/pick-place/task-2/place_a_cube_in_a_bag_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-2/place_a_cube_in_a_bag_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-2/pointcloud.ply",
+                "difficulty": "Intermediate",
+                "duration": "45 seconds",
+                "tags": ["multi-object", "sorting", "coordination", "planning"]
+            },
+            "pick-place-3": {
+                "task_id": "pick-place-3",
+                "task_name": "Pick up a tripod and stand it on the desk",
+                "category": "Pick and Place",
+                "text_description": "This task demonstrates complex manipulation where the humanoid robot picks up a tripod and carefully stands it upright on the desk, requiring balance, precision, and spatial reasoning.",
+                "egocentric_video": "./static/data/videos/pick-place/task-3/pick_up_a_tripod_and_stand_it_on_the_desk_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-3/pick_up_a_tripod_and_stand_it_on_the_desk_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-3/pointcloud.ply",
+                "difficulty": "Advanced",
+                "duration": "30 seconds",
+                "tags": ["precision", "delicate", "fine-control", "accuracy"]
+            },
+            "pick-place-4": {
+                "task_id": "pick-place-4",
+                "task_name": "Pick up an air purify spray and put it inside a container",
+                "category": "Pick and Place",
+                "text_description": "This task involves picking up an air purifier spray bottle and placing it inside a container, demonstrating object manipulation and spatial planning.",
+                "egocentric_video": "./static/data/videos/pick-place/task-4/pick_an_air_purify_spray_and_put_it_inside_a_container_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-4/pick_an_air_purify_spray_and_put_it_inside_a_container_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-4/pointcloud.ply",
+                "difficulty": "Intermediate",
+                "duration": "25 seconds",
+                "tags": ["container", "placement", "spatial", "planning"]
+            },
+            "pick-place-5": {
+                "task_id": "pick-place-5",
+                "task_name": "Pick a multi-meter and place it in a container",
+                "category": "Pick and Place",
+                "text_description": "This task demonstrates precision handling of electronic equipment, requiring careful manipulation of a multi-meter and placing it in a designated container.",
+                "egocentric_video": "./static/data/videos/pick-place/task-5/pick_a_multi_meter_and_place_it_in_a_container_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-5/pick_a_multi_meter_and_place_it_in_a_container_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-5/pointcloud.ply",
+                "difficulty": "Advanced",
+                "duration": "35 seconds",
+                "tags": ["electronics", "precision", "delicate", "tools"]
+            },
+            "pick-place-6": {
+                "task_id": "pick-place-6",
+                "task_name": "Pick a 3d printing filament and put it inside the container",
+                "category": "Pick and Place",
+                "text_description": "This task involves handling 3D printing filament, requiring careful manipulation to avoid tangling and precise placement in a container.",
+                "egocentric_video": "./static/data/videos/pick-place/task-6/pick_a_3d_printing_filament_and_put_it_inside_the_container_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-6/pick_a_3d_printing_filament_and_put_it_inside_the_container_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-6/pointcloud.ply",
+                "difficulty": "Intermediate",
+                "duration": "20 seconds",
+                "tags": ["filament", "flexible", "storage", "organization"]
+            },
+            "pick-place-7": {
+                "task_id": "pick-place-7",
+                "task_name": "Stack a rolls of paper towel on top of the other",
+                "category": "Pick and Place",
+                "text_description": "This task demonstrates stacking operations where the humanoid robot carefully stacks rolls of paper towels, requiring balance and spatial awareness.",
+                "egocentric_video": "./static/data/videos/pick-place/task-7/stack_a_rolls_of_paper_towel_on_top_of_the_other_egocentric.mp4",
+                "third_view_video": "./static/data/videos/pick-place/task-7/stack_a_rolls_of_paper_towel_on_top_of_the_other_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/pick-place/task-7/pointcloud.ply",
+                "difficulty": "Beginner",
+                "duration": "18 seconds",
+                "tags": ["stacking", "balance", "organization", "basic"]
+            },
+            "tool-use-1": {
+                "task_id": "tool-use-1",
+                "task_name": "Pour water from a kettle into a cup",
+                "category": "Tool Use",
+                "text_description": "This task demonstrates tool manipulation where the humanoid robot uses a kettle to pour water into a cup, requiring precise control and coordination.",
+                "egocentric_video": "./static/data/videos/tool-use/task-1/pour_water_from_a_kettle_into_a_cup_egocentric.mp4",
+                "third_view_video": "./static/data/videos/tool-use/task-1/pour_water_from_a_kettle_into_a_cup_no_sound.mp4",
+                "point_cloud": "./static/data/point-clouds/tool-use/task-1/pointcloud.ply",
+                "difficulty": "Advanced",
+                "duration": "40 seconds",
+                "tags": ["pouring", "precision", "coordination", "tools"]
+            },
+            "tool-use-2": {
+                "task_id": "tool-use-2",
+                "task_name": "Wipe a table with an eraser",
+                "category": "Tool Use",
+                "text_description": "This task demonstrates cleaning operations where the humanoid robot uses an eraser to wipe a table surface, requiring controlled movements and surface contact.",
+                "egocentric_video": "./static/data/videos/tool-use/task-2/wipe_a_table_with_an_eraser_egocentric.mp4",
+                "third_view_video": "./static/data/videos/tool-use/task-2/wipe_a_table_with_an_eraser_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/tool-use/task-2/pointcloud.ply",
+                "difficulty": "Intermediate",
+                "duration": "30 seconds",
+                "tags": ["cleaning", "surface", "contact", "maintenance"]
+            },
+            "tool-use-3": {
+                "task_id": "tool-use-3",
+                "task_name": "Wipe a monitor with a cloth",
+                "text_description": "This task involves cleaning a monitor screen with a cloth, requiring gentle pressure and careful surface contact to avoid damage.",
+                "egocentric_video": "./static/data/videos/tool-use/task-3/wipe_a_monitor_with_a_cloth_egocentric.mp4",
+                "third_view_video": "./static/data/videos/tool-use/task-3/wipe_a_monitor_with_a_cloth_nosound.mp4",
+                "point_cloud": "./static/data/point-clouds/tool-use/task-3/pointcloud.ply",
+                "difficulty": "Advanced",
+                "duration": "25 seconds",
+                "tags": ["cleaning", "delicate", "screen", "precision"]
+            }
+        };
+
         // Category toggle functionality
         function toggleCategory(categoryId) {
             const panel = document.getElementById(categoryId + '-panel');
@@ -587,23 +710,36 @@
             });
         });
 
-        async function updateTaskDisplay(taskId) {
+        function updateTaskDisplay(taskId) {
             // Update Task ID
             document.getElementById('taskid-text').innerHTML = taskId;
             
-            // Load task data from JSON files
-            const taskData = await getTaskData(taskId);
+            // Get task data from embedded data
+            const taskDataItem = taskData[taskId];
+            
+            if (!taskDataItem) {
+                // Show default message for tasks without data
+                document.getElementById('text-description-content').innerHTML = 
+                    `Task ${taskId} - Data not available in this demo version.`;
+                document.getElementById('egocentric-viewer').style.display = 'none';
+                document.getElementById('egocentric-placeholder').style.display = 'block';
+                document.getElementById('third-viewer').style.display = 'none';
+                document.getElementById('third-placeholder').style.display = 'block';
+                document.getElementById('point-cloud-content').innerHTML = 
+                    '<div class="placeholder-text">No point cloud data available</div>';
+                return;
+            }
             
             // Update Text Description
             document.getElementById('text-description-content').innerHTML = 
-                taskData.text_description || 'No description available';
+                taskDataItem.text_description || 'No description available';
             
             // Update Egocentric View
             const egocentricViewer = document.getElementById('egocentric-viewer');
             const egocentricPlaceholder = document.getElementById('egocentric-placeholder');
-            if (taskData.egocentric_video && taskData.egocentric_video !== '' && taskData.egocentric_video !== "about:blank") {
+            if (taskDataItem.egocentric_video && taskDataItem.egocentric_video !== '' && taskDataItem.egocentric_video !== "about:blank") {
                 const source = egocentricViewer.querySelector('source');
-                source.src = taskData.egocentric_video;
+                source.src = taskDataItem.egocentric_video;
                 egocentricViewer.load(); // Reload the video with new source
                 egocentricViewer.style.display = 'block';
                 egocentricPlaceholder.style.display = 'none';
@@ -615,9 +751,9 @@
             // Update Third View
             const thirdViewer = document.getElementById('third-viewer');
             const thirdPlaceholder = document.getElementById('third-placeholder');
-            if (taskData.third_view_video && taskData.third_view_video !== '' && taskData.third_view_video !== "about:blank") {
+            if (taskDataItem.third_view_video && taskDataItem.third_view_video !== '' && taskDataItem.third_view_video !== "about:blank") {
                 const source = thirdViewer.querySelector('source');
-                source.src = taskData.third_view_video;
+                source.src = taskDataItem.third_view_video;
                 thirdViewer.load(); // Reload the video with new source
                 thirdViewer.style.display = 'block';
                 thirdPlaceholder.style.display = 'none';
@@ -628,53 +764,15 @@
             
             // Update Point Cloud
             const pointCloudContent = document.getElementById('point-cloud-content');
-            if (taskData.point_cloud && taskData.point_cloud !== '' && taskData.point_cloud !== "about:blank") {
-                if (taskData.point_cloud.startsWith('http')) {
-                    pointCloudContent.innerHTML = `<iframe src="${taskData.point_cloud}" width="100%" height="400" frameborder="0"></iframe>`;
+            if (taskDataItem.point_cloud && taskDataItem.point_cloud !== '' && taskDataItem.point_cloud !== "about:blank") {
+                if (taskDataItem.point_cloud.startsWith('http')) {
+                    pointCloudContent.innerHTML = `<iframe src="${taskDataItem.point_cloud}" width="100%" height="400" frameborder="0"></iframe>`;
                 } else {
-                    pointCloudContent.innerHTML = `<div class="placeholder-text">Point cloud data available: ${taskData.point_cloud}</div>`;
+                    pointCloudContent.innerHTML = `<div class="placeholder-text">Point cloud data available: ${taskDataItem.point_cloud}</div>`;
                 }
             } else {
                 pointCloudContent.innerHTML = '<div class="placeholder-text">No point cloud data available</div>';
             }
-        }
-
-        // Load task data from JSON files
-        async function getTaskData(taskId) {
-            try {
-                // First, load the task index to get the file path
-                const indexResponse = await fetch('./static/data/task-index.json');
-                const taskIndex = await indexResponse.json();
-                
-                if (!taskIndex[taskId]) {
-                    console.error(`Task ID ${taskId} not found in index`);
-                    return getDefaultTaskData(taskId);
-                }
-                
-                // Load the specific task data file
-                const taskResponse = await fetch(taskIndex[taskId]);
-                const taskData = await taskResponse.json();
-                
-                return taskData;
-            } catch (error) {
-                console.error('Error loading task data:', error);
-                return getDefaultTaskData(taskId);
-            }
-        }
-
-        // Default task data when file loading fails
-        function getDefaultTaskData(taskId) {
-            return {
-                task_id: taskId,
-                task_name: `Task ${taskId}`,
-                text_description: `Description for ${taskId} - Data file not found or could not be loaded.`,
-                egocentric_video: '',
-                third_view_video: '',
-                point_cloud: '',
-                difficulty: 'Unknown',
-                duration: 'Unknown',
-                tags: []
-            };
         }
     </script>
 </body>
