@@ -7,17 +7,14 @@
     content="Humanoid Everyday: A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation">
   <meta name="keywords" content="Humanoid, Robotics, Dataset, Manipulation, Whole-body Control, Robot Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Humanoid Everyday</title>
+  <title>Humanoid Everyday</title>
   <link rel="icon" type="image/png" href="./static/images/usc_favicon.png">
-
-
 
   <!-- Google tag (gtag.js) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-QZ38WT2YPD');
   </script>
 
@@ -29,444 +26,420 @@
   <link rel="stylesheet" href="./static/css/index.css">
 
   <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    /* Reusable utilities */
+    .hero.video { overflow: hidden; position: relative; }
+    .hero-video { height: 100%; width: 100%; overflow: hidden; }
+    .hero-video video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+    /* GIF grid */
+    .gif-container { position: relative; overflow: hidden; border-radius: 10px; }
+    .gif-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gif-caption { position: absolute; top: 0; left: 0; color: white; background-color: rgba(0, 0, 0, 0.55); padding: 6px 10px; font-size: 0.9rem; border-bottom-right-radius: 8px; }
+    .gif-grid { margin-top: 1rem; }
+
+    /* Authors: shrink on mobile */
+    @media (max-width: 768px) {
+      .publication-authors { font-size: 1.3rem !important; line-height: 1.3rem !important; }
+      .publication-authors .author-block { display: inline-block; margin: 0 2px; }
+    }
+
+    /* Center figures responsively without overflows */
+    figure.image.centered { margin: 2em auto; display: flex; justify-content: center; }
+    figure.image.centered img { max-width: 100%; height: auto; }
+
+/* Make the hero truly full-bleed and avoid iOS 100vh bugs */
+html, body { height: 100%; }
+.hero.is-fullheight.video { min-height: 100svh; position: relative; }
+
+/* Video covers the entire hero */
+.hero.video .hero-video {
+  position: absolute;
+  inset: 0;              /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+}
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Subtle overlay for text contrast */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.30) 35%,
+    rgba(0,0,0,0.55)
+  );
+}
+
+/* Center hero text and ensure it fits without scrolling */
+/* .hero.video .hero-body { */
+/*   position: relative; */
+/*   z-index: 2; */
+/*   display: flex; */
+/*   align-items: center;   /* vertically center */ */
+/*   justify-content: center; */
+/*   padding: 6vh 2vw;      /* breathing room without forcing overflow */ */
+/* } */
+
+/* Keep the inner width generous on desktop while respecting smaller screens */
+.hero.video .hero-body .container {
+  max-width: min(1200px, 92vw);
+}
+
+/* Clamp the big title and subtitle so they never overflow the viewport */
+.hero .title.publication-title {
+  /* overrides inline font-size if still present */
+  font-size: clamp(2.2rem, 8vw, 7rem) !important;
+  line-height: 0.95;
+  margin: 0;
+}
+.hero .subtitle.publication-title {
+  font-size: clamp(1rem, 2.4vw, 2.4rem) !important;
+  line-height: 1.1;
+  margin-top: 1rem !important;
+}
+
+/* Make authors wrap nicely and scale with viewport */
+.hero .publication-authors {
+  font-size: clamp(0.95rem, 1.7vw, 1.4rem);
+  line-height: 1.2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.6rem;
+  margin-top: 0.75rem;
+}
+.hero .publication-authors sup { font-size: 0.6em; }
+
+
+@media (max-width: 768px) {
+  .hero .publication-links .button { font-size: 0.85rem; padding: 0.5rem 0.75rem; }
+}
+  </style>
+<link rel="preload" as="image" href="./static/images/teaser.jpg" fetchpriority="high">
 </head>
 
-<section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
-    <div class="hero-video" style="height: 100%; width: 100%; overflow: hidden;">
-      <video playsinline autoplay muted loop preload="auto" style="width:100%; height:100%; object-fit: cover; object-position: center;">
-        <source src=" ./static/videos/teaser.mp4" type="video/mp4" style="width:100%; height:auto;">
+<body>
+
+  <section class="hero is-link is-fullheight video">
+    <!-- ONE video element for all breakpoints (no duplication) -->
+    <div class="hero-video" style="background-image: url(./static/images/teaser.jpg); background-size: cover; background-position: center; display: block !important;">
+      <video id="teaser-video" playsinline autoplay muted loop preload="auto">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="hero-video is-hidden-tablet is-inline-block-mobile"
-      style="height: 100%; width: 100%; overflow: hidden;">
-      <video playsinline autoplay muted loop preload="auto" style="width:100%; height:100%; object-fit: cover; object-position: center;">
-        <source src=" ./static/videos/teaser.mp4" type="video/mp4">
-      </video>
-    </div>
-  <div class="overlay"></div>
-  <!-- Hero head: will stick at the top -->
+
+    <div class="overlay"></div>
+
+    <!-- Site nav (desktop only header container). Links are injected from a single array below. -->
     <div class="hero-head is-hidden-mobile">
-      <header class="navbar">
+      <header class="navbar" role="navigation" aria-label="main navigation">
         <div class="container is-size-5">
-          <div class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item pl-4 pr-4" href="icra.tex">
-                <span class="icon" style="margin-right:5px;">
-                  <img src="./static/images/arxiv.svg" alt="PDF" />
-                </span>
-                <span>Paper</span>
-              </a>
-              <a href="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" class="navbar-item  pl-4 pr-4">
-                <span class="icon" style="margin-right:5px;">
-                  <img src="./static/images/youtube.svg" alt="Youtube" />
-                </span>
-                <span>Video</span> </a>
-              <a class="navbar-item pl-4 pr-4" href="https://huggingface.co/datasets/usc-gvl/humanoid-everyday/" target="_blank" rel="noopener noreferrer">
-                <span class="icon" style="margin-right:5px;">
-                  <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
-                    alt="Hugging Face" 
-                    style="width: 20px; height: 20px; vertical-align: middle;">
-                </span>
-                <span>Dataset</span>
-              </a>
-              <a class="navbar-item pl-4 pr-4" href="./data_viewer/index.html">
-                <span class="icon" style="margin-right:5px;">
-                  <i class="fas fa-eye"></i>
-                </span>
-                <span>Data Viewer</span>
-              </a>
-              <a class="navbar-item  pl-4 pr-4" href="https://github.com/USC-GVL/Humanoid-Teleop">
-                <span class="icon" style="margin-right:5px;">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Data Collection</span> </a>
-              <a class="navbar-item  pl-4 pr-4" href="https://github.com/ausbxuse/Humanoid-Everyday">
-                <span class="icon" style="margin-right:5px;">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Dataloader</span> </a>
-              <a class="navbar-item  pl-4 pr-4" href="./cloud_evaluation_coming_soon.html">
-                <span class="icon" style="margin-right:5px;">
-                  <i class="fas fa-cloud"></i>
-                </span>
-                <span>Cloud Eval</span> </a>
-            </div>
+          <div class="navbar-menu is-active">
+            <div class="navbar-end" id="desktop-links"><!-- populated by JS --></div>
           </div>
         </div>
       </header>
     </div>
 
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title is-1 publication-title is-size-1-mobile gradient-text" style="font-size: 12rem;">
-        Humanoid Everyday
-      </h1>
-      <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem; margin-top: 1rem;">
-        A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation
-      </h1>
-      <div class="is-size-3 publication-authors">
-        <span class="author-block">
-          <a href="#">
-            Zhenyu Zhao
-          </a><sup>*1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Hongyi Jing
-          </a><sup>*1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Xiawei Liu
-          </a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Jiageng Mao
-          </a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Abha Jha
-          </a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Hanwen Yang
-          </a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Rong Xue
-          </a><sup>1</sup>
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Sergey Zakharov
-          </a><sup>2</sup>
-        </span>
-        <span class="author-block">
-          <a href="#">
-            Vitor Guizilini
-          </a><sup>2</sup>
-        </span>
-        <span class="author-block">
-          <a href="https://yuewang.xyz">
-            Yue Wang
-          </a><sup>1</sup>
-        </span>
-      </div>
-      <div class="is-size-5 publication-authors">
-        <span class="author-block"><sup>1</sup>University of Southern California</span>
-        <span class="author-block"><sup>2</sup>Toyota Research Institute</span>
-      </div>
-      <p class="has-text-centered" style="margin-top:1rem;"><sup>*</sup>Equal contribution</p>
-            <div class="column has-text-centered is-hidden-tablet">
-        <div class="publication-links">
-          <!-- PDF Link. -->
-          <span class="link-block">
-            <a href="icra.tex" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <img src="./static/images/arxiv.svg" alt="PDF" />
-              </span>
-              <span>Paper</span>
-            </a>
-          </span>
-          <span class="link-block">
-            <a href="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <img src="./static/images/youtube.svg" alt="Youtube" />
-              </span>
-              <span>Video</span>
-            </a>
-          </span>
-          <span class="link-block">
-            <a href="https://huggingface.co/datasets/usc-gvl/humanoid-everyday/" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
-              <span class="icon">
-                <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
-                  alt="Hugging Face" 
-                  style="width: 20px; height: 20px; vertical-align: middle;">
-              </span>
-              <span>Dataset</span>
-            </a>
-          </span>
-          <span class="link-block">
-            <a href="./data_viewer/index.html" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fas fa-eye"></i>
-              </span>
-              <span>Data Viewer</span>
-            </a>
-          </span>
-          <span class="link-block">
-            <a href="https://github.com/USC-GVL/Humanoid-Teleop" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Data Collection</span>
-            </a>
-          </span>
-          <span class="link-block">
-            <a href="https://github.com/ausbxuse/Humanoid-Everyday" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Dataloader</span>
-            </a>
-          </span>
-          <span class="link-block">
-            <a href="./cloud_evaluation_coming_soon.html" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fas fa-cloud"></i>
-              </span>
-              <span>Cloud Eval</span>
-            </a>
-          </span>
+    <!-- Hero content -->
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 id="hero-title" class="title is-1 publication-title is-size-1-mobile gradient-text">
+          Humanoid Everyday
+        </h1>
+        <h2 id="hero-subtitle" class="subtitle is-1 publication-title is-size-4-mobile">
+          A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation
+        </h2>
+
+        <div class="is-size-3 publication-authors">
+          <span class="author-block"><a href="https://zhenyuzhao.com">Zhenyu Zhao</a><sup>*1</sup>,</span>
+          <span class="author-block"><a href="#">Hongyi Jing</a><sup>*1</sup>,</span>
+          <span class="author-block"><a href="#">Xiawei Liu</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://pointscoder.github.io">Jiageng Mao</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://scholar.google.com/citations?user=3-4adIAAAAAJ&hl=en">Abha Jha</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://www.linkedin.com/in/hwyang1501/">Hanwen Yang</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="#">Rong Xue</a><sup>1</sup></span>
+          <span class="author-block"><a href="https://zakharos.github.io/">Sergey Zakharov</a><sup>2</sup></span>
+          <span class="author-block"><a href="https://vitorguizilini.github.io/">Vitor Guizilini</a><sup>2</sup></span>
+          <span class="author-block"><a href="https://yuewang.xyz">Yue Wang</a><sup>1</sup></span>
+        </div>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><sup>1</sup>University of Southern California</span>
+          <span class="author-block"><sup>2</sup>Toyota Research Institute</span>
+        </div>
+        <p class="has-text-centered" style="margin-top:1rem;"><sup>*</sup>Equal contribution</p>
+
+        <!-- Mobile-only buttons. Populated from the SAME array as desktop nav. -->
+        <div class="column has-text-centered is-hidden-tablet">
+          <div class="publication-links" id="mobile-links"><!-- populated by JS --></div>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-
-  
-</section>
-
-
-
-
-<section class="section" id="overview">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-3 has-text-centered">Abstract</h2>
+  <!-- Abstract -->
+  <section class="section" id="abstract">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-justified">
+          <h2 class="title is-3 has-text-centered">Abstract</h2>
           <p>
             From loco-motion to dextrous manipulation, humanoid robots have made remarkable strides in demonstrating complex full-body capabilities. However, the majority of current robot learning datasets and benchmarks mainly focus on stationary robot arms, and the few existing humanoid datasets are either confined to fixed environments or limited in task diversity, often lacking human-humanoid interaction and lower-body locomotion. Moreover, there are a few standardized evaluation platforms for benchmarking learning-based policies on humanoid data. In this work, we present <strong>Humanoid Everyday</strong>, a large-scale and diverse humanoid manipulation dataset characterized by extensive task variety involving dextrous object manipulation, human-humanoid interaction, locomotion-integrated actions, and more. Leveraging a highly efficient human-supervised teleoperation pipeline, <strong>Humanoid Everyday</strong> aggregates high-quality multimodal sensory data, including RGB, depth, LiDAR, and tactile inputs, together with natural language annotations, comprising 10.3k trajectories and over 3 million frames of data across 260 tasks across 7 broad categories. In addition, we conduct an analysis of representative policy learning methods on our dataset, providing insights into their strengths and limitations across different task categories. For standardized evaluation, we introduce a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. By releasing <strong>Humanoid Everyday</strong> along with our policy learning analysis and a standardized cloud-based evaluation platform, we intend to advance research in general-purpose humanoid manipulation and lay the groundwork for more capable and embodied robotic agents in real-world scenarios.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" id="video">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
-    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" title="Humanoid Everyday Technical Summary Video"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</section>
-
-
-
-
-
-<section class="section" id="overview">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-3 has-text-centered">Overview</h2>
-        <figure class="image" style="margin: 2em 0;">
-          <img src="static/images/block-2.jpg" alt="Humanoid Everyday Overview. Humanoid Everyday covers 260 tasks across 7 distinct categories of humanoid manipulation tasks with rich multimodal information recorded at 30Hz, and provides a cloud-based evaluation platform for standardized policy deployment.">
-        </figure>
-        <p class="has-text-centered"><b>Humanoid Everyday Overview.</b> Humanoid Everyday Overview. Humanoid Everyday covers 260 tasks across 7 distinct categories of humanoid manipulation tasks with rich multimodal information recorded at 30Hz, and provides a cloud-based evaluation platform for standardized policy deployment.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="overview">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-justified">
-        <h2 class="title is-3 has-text-centered">Humanoid Everyday Dataset</h2>
-
-        <figure class="image" style="margin: 2em 0;">
-          <img src="static/images/task_distribution.png" alt="Task Distribution Chart">
-        </figure>
-        <p class="has-text-centered"><b>Task Distribution.</b> Distribution of tasks and skill categories in the Humanoid Everyday Dataset.</p>
-        
-
-          
-
-<div class="columns is-multiline is-centered is-mobile gif-grid">
-  <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
-    <div class="gif-container">
-      <img src="./static/videos/video1-ezgif.com-crop.gif" alt="Basic Manipulation GIF">
-      <p class="gif-caption">Loco-Manipulation</p>
-    </div>
-  </div>
-
-  <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
-    <div class="gif-container">
-      <img src="./static/videos/video2-ezgif.com-crop.gif" alt="Deformable Manipulation GIF">
-      <p class="gif-caption">Deformable Manipulation</p>
-    </div>
-  </div>
-
-  <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
-    <div class="gif-container">
-      <img src="./static/videos/video6-ezgif.com-crop.gif" alt="Articulated Manipulation GIF">
-      <p class="gif-caption">Articulated Manipulation</p>
-    </div>
-  </div>
-
-  <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
-    <div class="gif-container">
-      <img src="./static/videos/video5-ezgif.com-crop.gif" alt="Tool Use GIF">
-      <p class="gif-caption">Tool Use</p>
-    </div>
-  </div>
-
-  <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
-    <div class="gif-container">
-      <img src="./static/videos/video3-ezgif.com-crop.gif" alt="High-Precision Manipulation GIF">
-      <p class="gif-caption">High-Precision Manipulation</p>
-    </div>
-  </div>
-
-  <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
-    <div class="gif-container">
-      <img src="./static/videos/video4-ezgif.com-crop.gif" alt="Human-Robot Interaction GIF">
-      <p class="gif-caption">Human-Robot Interaction</p>
-    </div>
-  </div>
-</div>
-
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Try Out Our Cloud Evaluation Platform!</h2>
-        <div class="content has-text-centered">
-          <p>
-            We provide a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. Click the button below to visit our evaluation website.
           </p>
-          <a href="./cloud_evaluation_coming_soon.html" class="button is-primary is-rounded is-large">Go to Cloud Evaluation</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{zhao2025humanoid-everyday,
+  <!-- Video -->
+  <section class="section" id="video">
+    <div class="container is-max-widescreen" style="text-align: center;">
+      <h2 class="title is-3 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
+      <iframe class="youtube-embed" width="80%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ" title="Humanoid Everyday Technical Summary Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Overview figure -->
+  <section class="section" id="overview-figure">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-justified">
+          <h2 class="title is-3 has-text-centered">Overview</h2>
+          <figure class="image centered">
+            <img src="static/images/block-2.jpg" alt="Humanoid Everyday Overview. Humanoid Everyday covers 260 tasks across 7 distinct categories of humanoid manipulation tasks with rich multimodal information recorded at 30Hz, and provides a cloud-based evaluation platform for standardized policy deployment.">
+          </figure>
+          <p class="has-text-centered">
+            <b>Humanoid Everyday Overview.</b> Humanoid Everyday covers 260 tasks across 7 distinct categories of humanoid manipulation tasks with rich multimodal information recorded at 30Hz, and provides a cloud-based evaluation platform for standardized policy deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset section -->
+  <section class="section" id="dataset">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-justified">
+          <h2 class="title is-3 has-text-centered">Humanoid Everyday Dataset</h2>
+
+          <figure class="image" style="margin: 2em 0;">
+            <img src="static/images/task_distribution.png" alt="Task Distribution Chart">
+          </figure>
+          <p class="has-text-centered"><b>Task Distribution.</b> Distribution of tasks and skill categories in the Humanoid Everyday Dataset.</p>
+
+          <div class="columns is-multiline is-centered is-mobile gif-grid">
+            <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+              <div class="gif-container">
+                <img src="./static/videos/video1-ezgif.com-crop.gif" alt="Basic Manipulation GIF">
+                <p class="gif-caption">Loco-Manipulation</p>
+              </div>
+            </div>
+            <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+              <div class="gif-container">
+                <img src="./static/videos/video2-ezgif.com-crop.gif" alt="Deformable Manipulation GIF">
+                <p class="gif-caption">Deformable Manipulation</p>
+              </div>
+            </div>
+            <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+              <div class="gif-container">
+                <img src="./static/videos/video6-ezgif.com-crop.gif" alt="Articulated Manipulation GIF">
+                <p class="gif-caption">Articulated Manipulation</p>
+              </div>
+            </div>
+            <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+              <div class="gif-container">
+                <img src="./static/videos/video5-ezgif.com-crop.gif" alt="Tool Use GIF">
+                <p class="gif-caption">Tool Use</p>
+              </div>
+            </div>
+            <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+              <div class="gif-container">
+                <img src="./static/videos/video3-ezgif.com-crop.gif" alt="High-Precision Manipulation GIF">
+                <p class="gif-caption">High-Precision Manipulation</p>
+              </div>
+            </div>
+            <div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+              <div class="gif-container">
+                <img src="./static/videos/video4-ezgif.com-crop.gif" alt="Human-Robot Interaction GIF">
+                <p class="gif-caption">Human-Robot Interaction</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cloud evaluation CTA -->
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Try Out Our Cloud Evaluation Platform!</h2>
+          <div class="content has-text-centered">
+            <p>
+              We provide a cloud-based evaluation platform that allows researchers to seamlessly deploy their policies in our controlled setting and receive performance feedback. Click the button below to visit our evaluation website.
+            </p>
+            <a href="./cloud_evaluation_coming_soon.html" class="button is-primary is-rounded is-large">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{zhao2025humanoid-everyday,
   author    = {Zhenyu Zhao and Hongyi Jing and Xiawei Liu and Jiageng Mao and Abha Jha and Hanwen Yang and Rong Xue and Sergey Zakharov and Vitor Guizilini and Yue Wang}, 
   title     = {Humanoid Everyday: A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation},
   year      = {2025},
   primaryClass={cs.RO},
 }</code></pre>
-  </div>
-</section>
+    </div>
+  </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Website template modified from <a href="https://nerfies.github.io/">NeRFies</a>, <a
-              href="https://huy-ha.github.io/scalingup/">Scaling Up Distilling Down</a>, and <a href="https://umi-on-legs.github.io/">Umi-on-legs</a>.
-          </p>
-          <p>
-            This website is licensed under a <a rel="license"
-              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-              Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow and modify the <a
-              href="https://github.com/nerfies/nerfies.github.io">source
-              code</a> of this website as long as
-            you link back to the <a href="https://nerfies.github.io/">NeRFies</a> page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template modified from <a href="https://nerfies.github.io/">NeRFies</a>, <a
+                href="https://huy-ha.github.io/scalingup/">Scaling Up Distilling Down</a>, and <a href="https://umi-on-legs.github.io/">Umi-on-legs</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-<style>
-  .gif-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-  }
+  </footer>
 
-  .gif-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  <script>
+    // === Single source of truth for links ===
+    const LINKS = [
+      {
+        href: './file/humanoid_everyday_arxiv.pdf',
+        iconHtml: '<img src="./static/images/arxiv.svg" alt="arxiv" style="width:18px; height:18px;"/>',
+        label: 'Paper'
+      },
+      {
+        href: './file/humanoid_everyday_arxiv.pdf',
+        iconHtml: '<img src="./static/images/pdf.svg" alt="PDF" style="width:18px; height:18px;"/>',
+        label: 'Paper'
+      },
+      {
+        href: 'https://www.youtube.com/embed/eenEpo4CtAI?si=XK9i2MbUhc_ASycJ',
+        iconHtml: '<img src="./static/images/youtube.svg" alt="YouTube" />',
+        label: 'Video'
+      },
+      {
+        href: 'https://huggingface.co/datasets/usc-gvl/humanoid-everyday/',
+        iconHtml: '<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" style="width:20px;height:20px;vertical-align:middle;">',
+        label: 'Dataset',
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      },
+      {
+        href: './data_viewer/index.html',
+        iconHtml: '<i class="fas fa-eye"></i>',
+        label: 'Data Viewer'
+      },
+      {
+        href: 'https://github.com/USC-GVL/Humanoid-Teleop',
+        iconHtml: '<i class="fab fa-github"></i>',
+        label: 'Data Collection'
+      },
+      {
+        href: 'https://github.com/ausbxuse/Humanoid-Everyday',
+        iconHtml: '<i class="fab fa-github"></i>',
+        label: 'Dataloader'
+      },
+      {
+        href: './cloud_evaluation_coming_soon.html',
+        iconHtml: '<i class="fas fa-cloud"></i>',
+        label: 'Cloud Eval'
+      }
+    ];
 
-  .gif-caption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.55);
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    border-bottom-right-radius: 8px;
-  }
+    function renderDesktopLinks(container) {
+      LINKS.forEach(({ href, iconHtml, label, target, rel }) => {
+        const a = document.createElement('a');
+        a.className = 'navbar-item pl-4 pr-4';
+        a.href = href;
+        if (target) a.target = target;
+        if (rel) a.rel = rel;
+        a.innerHTML = `<span class="icon" style="margin-right:5px;">${iconHtml}</span><span>${label}</span>`;
+        container.appendChild(a);
+      });
+    }
 
-  .gif-grid {
-    margin-top: 1rem;
-  }
+    function renderMobileLinks(container) {
+      LINKS.forEach(({ href, iconHtml, label, target, rel }) => {
+        const wrapper = document.createElement('span');
+        wrapper.className = 'link-block';
 
-@media only screen and (max-width: 768px) {
-  .publication-authors {
-    font-size: 1.3rem !important;
-    line-height: 1.3rem !important;
-  }
+        const a = document.createElement('a');
+        a.className = 'external-link button is-normal is-rounded is-dark';
+        a.href = href;
+        if (target) a.target = target;
+        if (rel) a.rel = rel;
+        a.innerHTML = `<span class="icon">${iconHtml}</span><span>${label}</span>`;
 
-  .publication-authors .author-block {
-    display: inline-block;
-    margin: 0 2px;
-  }
-}
-</style>
+        wrapper.appendChild(a);
+        container.appendChild(wrapper);
+      });
+    }
 
+    document.addEventListener('DOMContentLoaded', () => {
+      const desktop = document.getElementById('desktop-links');
+      const mobile = document.getElementById('mobile-links');
+      if (desktop) renderDesktopLinks(desktop);
+      if (mobile) renderMobileLinks(mobile);
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tabs li');
-    const tabContent = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = document.getElementById(tab.dataset.tab);
-
-        tabs.forEach(t => t.classList.remove('is-active'));
-        tab.classList.add('is-active');
-
-        tabContent.forEach(content => {
-          content.style.display = 'none';
+      // Simple tabs init (unchanged)
+      const tabs = document.querySelectorAll('.tabs li');
+      const tabContent = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = document.getElementById(tab.dataset.tab);
+          tabs.forEach(t => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          tabContent.forEach(content => { content.style.display = 'none'; });
+          if (target) target.style.display = 'block';
         });
-
-        target.style.display = 'block';
       });
     });
-  });
-</script>
-
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const video = document.getElementById('teaser-video');
+      if (video) {
+        video.play().catch(error => {
+          console.error("Video play failed:", error);
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
